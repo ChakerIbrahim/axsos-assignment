@@ -1,0 +1,25 @@
+.first-header{
+  background-color: black;
+  color: white;
+  margin: 8px;
+
+}
+.word{
+  color: skyblue;
+}
+
+.second-header{
+  background-color: slateblue;
+  color: white;
+  text-align: center;
+  font-style: italic;
+ margin: 8px;
+}
+
+.third-header{
+  text-align: right;
+  background-color: lightskyblue;
+  text-decoration: underline;
+  margin: 8px;
+  
+}
