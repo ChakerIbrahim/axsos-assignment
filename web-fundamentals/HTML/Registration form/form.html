@@ -8,13 +8,13 @@
 </head>
 
 <body>
-    <forms>
-        <h1>Registration Form</h1>
-        <label for="firstName">first name *</label>
-        <input type="text" name="first name" id="">
+    <h1>Registration Form</h1>
+    <form>
+        <label>first name *</label>
+        <input type="text" name="first name" id="" required>
         <br>
         <label for="lastname">last name *</label>
-        <input type="text" name="last name" id="">
+        <input type="text" name="last name" id="lastname">
         <br>
         <label for="Email">email adress *</label>
         <input type="email">
@@ -30,7 +30,7 @@
         <br>
         <label for="gender">gender :</label>
         <br>
-        <input type="radio" name="gender">
+        <input type="radio" name="gender" value="male">
         <label for="gender">male</label>
         <input type="radio" name="gender">
         <label for="gender">female</label>
@@ -44,7 +44,7 @@
         <textarea name="describe"></textarea>
         <br>
         <label for="language">favourite language</label>
-        <select name="" id="">
+        <select name="" id="language">
             <option value="java">java</option>
             <option value="js">javascript</option>
             <option value="c++">c++</option>
@@ -57,7 +57,7 @@
         <br>
         <button>creat account</button>
 
-        </form>
+    </form>
 
 </body>
 

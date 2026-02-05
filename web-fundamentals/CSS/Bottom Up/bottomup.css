@@ -1,0 +1,23 @@
+*{
+    background-color: white;
+}
+
+
+.d1{
+    background-color: white;
+    border-color:aqua;
+    color: aqua;    
+    border-radius: 50px;
+}
+.d2{
+    background-color:aquamarine;
+    border-color: black;
+    color: white;
+    border-radius: 50%;
+    
+    
+}
+.d3{
+    background-color:blue;
+    color: white;
+}
