@@ -10,53 +10,55 @@
 <body>
     <h1>Registration Form</h1>
     <form>
-        <label>first name *</label>
-        <input type="text" name="first name" id="" required>
-        <br>
+        <div>
+        <label for="first_name">first name *</label>
+        <input type="text" name="first name" id="first_name" required>
+        </div>
         <label for="lastname">last name *</label>
         <input type="text" name="last name" id="lastname">
-        <br>
+        <div>
         <label for="Email">email adress *</label>
-        <input type="email">
-        <br>
+        <input type="email" name="email" id="email">
+        </div>
         <label for="password">password *</label>
-        <input type="password">
-        <br>
+        <input type="password" name="password" id="password">
+        <div>
         <label for="c password">comfirm password *</label>
-        <input type="password">
-        <br>
+        <input type="password" name="cpassword" id="cpassword"> 
+        </div>
         <label for="date">birthdate</label>
-        <input type="date" name="" id="">
-        <br>
+        <input type="date" name="date" id="birthdate">
+        <div>
         <label for="gender">gender :</label>
-        <br>
+        </div>
         <input type="radio" name="gender" value="male">
         <label for="gender">male</label>
-        <input type="radio" name="gender">
+        <input type="radio" name="gender" id="female">
         <label for="gender">female</label>
-        <input type="radio" name="gender">
+        <input type="radio" name="gender"  id="iprefernottosay">>
         <label for="gender">i prefer not to say</label>
-        <input type="radio" name="gender">
-        <label for="gender">sandwich</label>
-        <br>
+        <input type="radio" name="gender" id="sandwich">
+        <label for="gender">sandwich</label >
+        <div>
         <label for="describe">Message</label>
-        <br>
+        </div>
         <textarea name="describe"></textarea>
-        <br>
+        <div>
         <label for="language">favourite language</label>
         <select name="" id="language">
-            <option value="java">java</option>
+            <option value="java">java </option>
             <option value="js">javascript</option>
             <option value="c++">c++</option>
             <option value="html">html</option>
 
         </select>
-        <br>
-        <input type="checkbox" name="" id="">
+        </div>
+        
+        <input type="checkbox" name="" id="comment">
         <label for="text">receive emails and updates</label>
-        <br>
+        <div>
         <button>creat account</button>
-
+        </div>
     </form>
 
 </body>
