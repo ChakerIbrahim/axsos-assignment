@@ -6,6 +6,7 @@
     border-radius: 50px;
     width: 100px;
     border: 1px solid #2ca6a8;
+    margin-bottom: 10px;
 }
 
 .d2{
@@ -13,13 +14,18 @@
     color: white;
     border-radius: 50%;
     border: 1px solid;
+    margin-bottom: 10px;
 }
 
 .d3{
 background-color: #2b78e4;
 color :white;
-padding-left:20px ;
-padding-right: 20px;
+padding:0px 20px;
 border: 1px solid black;
-box-shadow: 2px 2px 0px black;
+box-shadow: 2px 2px  black;
+
+
+}
+.d1 , .d2 ,.d3{
+        display:block;
 }
