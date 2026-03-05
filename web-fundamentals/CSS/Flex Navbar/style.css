@@ -1,0 +1,32 @@
+* {
+    font-family: sans-serif;
+}
+.nav{
+    background-color: rgb(56, 54, 54);
+    display: flex;
+    justify-content: space-between;
+    padding:15px;
+}
+.nav-title{
+    color: white;
+}
+.btn{
+    background-color: aqua;
+    color: white;
+    border: 3px solid black;
+    box-shadow: 2px 2px 0 black;
+}
+.nav-links{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+a {
+    color: gray;
+    margin-right: 20px;
+    text-decoration: none;
+}
+.active{
+    color: aliceblue;
+}
