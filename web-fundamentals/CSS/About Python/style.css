@@ -1,4 +1,8 @@
 /* Main Container */
+*{margin: 0;
+padding: 0;
+box-sizing: 0;
+}
 .maincontainer{
     width: 970px;
     background-color: rgb(88, 88, 171);
@@ -40,12 +44,83 @@ button{
 }
 /* Nav Bar */
 .navbar a {
-    background-color: aqua;
     text-decoration: none;
+    color: white;
+    font-size: x-large;
+} 
+.navbar{
+    background-color:rgb(16, 113, 146);
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    align-items: center;
+    width: 900px;
+    margin-left: 50px;
+    box-shadow: 2px 2px 0;
 }
 .links{
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-left: 90px;
+    margin-top: 40px;
+}
+.links a{
+    color: white;
+    font-size: larger;
+}
+.aboutpython{
+    color: white;
+    position: absolute;
+    top: 250px;
+    left: 300px;
+    font-size: medium;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.aboutpython p{
+    margin: 0;
+}
+.nicephrases{
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 350px;
+    left:450px
+    
+    
+}
+.nicephrases p {
+    margin-bottom:6px;
+}
+.zenofpython{
+    color:white;
+    font-size: large;
+    position: absolute;
+    top:520px;
+    left:550px;
+}
+.whitebar{
+    display: flex;
+    margin-top: 200px;
+    justify-content: space-around;
+    background-color: white;
+    height: 220px;
+    border-top: 5px double blue;
+    text-align: center;
+    
+}
+.whitebar1 ul{
+    color: rgb(33, 166, 249);
+}
+.whitebar2  ul{
+    color: rgb(33, 166, 249);
+}
+.whitebar2 a{
+    color: rgb(33, 166, 249);
 }
