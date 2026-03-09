@@ -1,0 +1,51 @@
+/* Main Container */
+.maincontainer{
+    width: 970px;
+    background-color: rgb(88, 88, 171);
+}
+.yellowtext{
+    color: yellow;
+}
+.whitetext{
+    color: white;
+}
+.textsize{
+    display: flex;
+    position: absolute;
+    top:10px;
+    left:750px
+}
+.blacksearchbar{
+    background-color: rgb(43, 39, 39);
+    display: flex;
+    height: 70px;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top:50px;
+    left:650px
+}
+.searchbar{
+    display: flex;
+    height:40px;
+}
+button{
+    color: white;
+    background-color: rgb(35, 17, 113);
+    border-radius: 20%;
+    height: 30px;
+    width: 40px;
+}
+/* Nav Bar */
+.navbar a {
+    background-color: aqua;
+    text-decoration: none;
+}
+.links{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 90px;
+}
