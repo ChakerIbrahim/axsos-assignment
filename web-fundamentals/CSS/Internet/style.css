@@ -1,0 +1,212 @@
+body{
+    background-color: #E9E9E9;
+}
+.mainpic{
+    height: 100px;
+    position: relative;
+    top:60px
+}
+.bluebartop{
+    width: 1000px;
+    height: 70px;
+    background-color: #3E76A7;
+    color: white;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top:130px;
+    z-index: -1;
+    margin-top: 15px;
+}
+.bluebartop h1{
+    padding-left: 20px;
+}
+.maintittle h1{
+    font-size: 80px;
+
+}
+.maintittle span{
+    color:#26649A;
+}
+.maintittle{
+    display: flex;
+}
+.homepic{
+    height: 30px;
+}
+.dns{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 220px;
+    left:250px;
+}
+.dns a{
+    color: #6386A6;
+}
+.phonepic{
+    height: 50px;
+    position: absolute;
+    top:230px;
+    left:750px;
+}
+.numbers a{
+    color: rgb(3, 99, 159);
+    font-size: xx-large;
+    font-weight: 900;
+}
+.clientsandservers h2{
+    color: #25619B;
+}
+.clientsandservers a{
+    color: #0893A4;
+}
+.clientsandservers span{
+    font-weight: 900;
+}
+.clientsandservers{
+    max-width: 700px;
+    margin-top: 100px;
+    position: absolute;
+    top: 200px;
+    left: 300px;
+    border-top: 2px solid black;
+}
+.clientandserverspic{
+    height: 120px;
+    position: relative;
+    left:180px;
+}
+.whatactuallyhappens h2{
+    color: #25619B;
+}
+.whatactuallyhappens a{
+    color: #0893A4;
+}
+.whatactuallyhappens{
+    max-width: 700px;
+    position: absolute;
+    top:630px;
+    left:300px;
+}
+.thebig3pic{
+    height: 120px;
+    position: absolute;
+    top:25px;
+    left:30px;
+}
+.thebig3 h2{
+    color: #25619B;
+}
+.thebig3 a{
+    color: #0893A4;
+}
+.red{
+    color: red;
+}
+.blue{
+    color: #0893A4;
+}
+.links{
+    display: flex;
+    flex-direction: column;
+}
+.video{
+    border: 2px solid black;
+    width: 200px;
+    height: 40px;
+    color: white;
+    background-color: #3D7BAE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 1px 1px 0 black;
+}
+a{
+    text-decoration: none;
+}
+.resources{
+    border: 2px solid black;
+    width: 200px;
+    height: 40px;
+    color: white;
+    background-color: #F07901;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 0 black;
+    margin-bottom: 20px;
+}
+.ninja{
+    background-image:url(images/ad_background.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    color: white;
+    height: 500px;;
+}
+.ninjapic{
+    height: 100px;
+    margin-left: 50px;
+    position: absolute;
+    top: 630px;
+}
+.text1{
+    margin-left: 20px;
+}
+.text2{
+    margin-left: 10px;
+}
+.text3{
+    margin-left: 50px;
+}
+.ninja p{
+    font-size: x-large;
+}
+.ninja a{
+    border: 2px solid black;
+    background-color: #29C7E1;
+}
+.ninja span{
+    font-size: xx-small;
+}
+.numbers{
+    position: absolute;
+    top:220px;
+    left: 810px;
+    
+}
+.numbers p{
+    margin: 0;
+}
+.thebig3{
+
+    position: absolute;
+    top:880px;
+    left:250px;
+    border: 5px solid blue;
+    width: 748px;
+}
+.whatisinternet p{
+    font-weight: bold;
+}
+.whatisinternet{
+    border-bottom: 2px solid black;
+    max-width: 10%;
+}    
+.learnmore{
+    position: absolute;
+    top:740px;
+    left: 30px;
+    width: 130px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.thebig3 div{
+    margin-left:200px;
+}
