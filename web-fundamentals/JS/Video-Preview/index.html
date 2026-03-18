@@ -27,9 +27,9 @@
         <div class="col-l">
 
             <!-- video -->
-            <video controls width="700" height="400">
+            <video muted loop controls width="700" height="400" onmouseover="playVideo(this)" onmouseout="pauseVideo(this)">
             <source src="assets/20453024-uhd_3840_2160_30fps.mp4" type="video/mp4">
-            
+            </video>
             <!-- video info -->
             <div class="row">
                 <div class="start">
@@ -40,7 +40,7 @@
                         <span class="user-name">Example User Name</span>
                     </div>
                 </div>
-                <button class="btn">Subscribe</button>
+                <button class="btn" onclick="subscribe()">Subscribe</button>
             </div>
 
         </div>
@@ -51,22 +51,22 @@
             <h3 class="sub-header">Up Next</h3>
 
             <div class="video-small">
-                <img src="assets/video-placeholder.png" alt="video placeholder" class="vid-s">
+                <video muted width="170" onmouseover="playVideo(this)" onmouseout="pauseVideo(this)" src="assets/14946422_3840_2160_24fps.mp4"></video>
                 <span class="video-title">Not a Rick Roll</span>
             </div>
 
             <div class="video-small">
-                <img src="assets/video-placeholder.png" alt="video placeholder" class="vid-s">
+                <video muted width="170" onmouseover="playVideo(this)" onmouseout="pauseVideo(this)" src="assets/15433110_3840_2160_30fps.mp4"></video>
                 <span class="video-title">10 Facts About ET's Cat!</span>
             </div>
 
             <div class="video-small">
-                <img src="assets/video-placeholder.png" alt="video placeholder" class="vid-s">
+                <video muted width="170" onmouseover="playVideo(this)" onmouseout="pauseVideo(this)" src="assets/14370432_3840_2160_24fps.mp4"></video>
                 <span class="video-title">5 Cosplay Tips</span>
             </div>
 
             <div class="video-small">
-                <img src="assets/video-placeholder.png" alt="video placeholder" class="vid-s">
+                <video muted width="170" onmouseover="playVideo(this)" onmouseout="pauseVideo(this)" src="assets/12472510_3840_2160_30fps.mp4"></video>
                 <span class="video-title">Boy Battles Dinobot in Thunderdome</span>
             </div>
 
