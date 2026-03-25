@@ -1,0 +1,63 @@
+.blacktopbar{
+    background-color: black;
+    color: white;
+    width: 36%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+    padding-left: 30px;
+}
+.yourfeed{
+    display: flex;
+    align-items: center;
+    padding-left: 400px;
+}
+img{
+    height: 100px;
+    width: 80px;
+}
+.profilepic{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    width: 200px;
+    height: 250px;
+    margin-left: 100px;
+}
+.neilm{
+    border: 2px solid black;
+    width: 400px;
+    position: absolute;
+    left: 350px;
+    top: 135px;
+}
+.separate{
+    display: flex;
+    justify-content: space-evenly;
+}
+.separate2{
+    margin-left: 60px;
+}
+.nicholek{
+    border: 2px solid black;
+    width: 400px;
+    position: absolute;
+    left: 350px;
+    top:300px ;
+
+}
+.jimr{
+    border: 2px solid black;
+    width: 400px;
+    position: absolute;
+    left:350px;
+    top: 430px;
+}
+button{
+    background-color: yellow;
+    width: 50px;
+    margin-top: 20px;
+}

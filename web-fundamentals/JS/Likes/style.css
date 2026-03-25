@@ -1,0 +1,23 @@
+body{
+    margin-left: 100px;
+}
+div{
+    border: 2px solid black;
+    height: 100px;
+    width: 280px;
+    padding: 50px;
+}
+button{
+    background-color: yellow;
+    box-shadow: 2px 2px 0;
+    position: absolute;
+    left: 370px;
+    top: 70px;
+    height: 30px;
+    width: 50px;
+}
+.likes{
+    position: absolute;
+    top: 60px;
+    left: 300px;
+}
