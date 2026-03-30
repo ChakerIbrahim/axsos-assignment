@@ -1,7 +1,10 @@
+body{
+    margin-left: 350px;
+}
 .blacktopbar{
     background-color: black;
     color: white;
-    width: 36%;
+    width: 600px;
     height: 60px;
     display: flex;
     align-items: center;
@@ -30,13 +33,12 @@ img{
 .neilm{
     border: 2px solid black;
     width: 400px;
-    position: absolute;
-    left: 350px;
-    top: 135px;
+
 }
 .separate{
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 .separate2{
     margin-left: 60px;
@@ -44,20 +46,20 @@ img{
 .nicholek{
     border: 2px solid black;
     width: 400px;
-    position: absolute;
-    left: 350px;
-    top:300px ;
+    margin-top: 10px;
 
 }
 .jimr{
     border: 2px solid black;
     width: 400px;
-    position: absolute;
-    left:350px;
-    top: 430px;
+    margin-top: 10px;
 }
 button{
     background-color: yellow;
     width: 50px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
+}
+.flex{
+    display: flex;
+    gap: 20px;
 }
