@@ -1,0 +1,45 @@
+.headimg{
+    height: 40px;
+    width: 40px;
+}
+.header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.musicimg{
+    height: 150px;
+}
+.music-sub{
+    background-color: rgb(213, 211, 211);
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.music-main{
+    border: 1px solid black;
+    /* height: 400px; */
+    padding: 20px;
+    width: 70%;
+}
+.thelastofus{
+    width: 1000px;
+}
+.playlist-main{
+    width: 30%;
+    /* height: 450px; */
+    border: 1px solid black;
+    padding: 20px;
+}
+.main{
+    width: 100em;
+    display: flex;
+    gap: 40px;
+}
+.playlist-main p{
+    background-color: rgb(217, 211, 211);
+    padding: 10px;
+}
