@@ -1,0 +1,32 @@
+h1{
+    color: blue;
+}
+progress {
+  accent-color: blue;
+}
+.cards {
+    display: flex;
+    gap: 10px;
+}
+.cards2{
+    display: flex;
+    gap: 10px;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 1px 1px 4px;
+    width: 250px;
+    height: 100px;
+    padding: 20px;
+    background-color: rgb(244, 240, 240);
+    border-radius: 20px;
+}
+.whitebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    
+}

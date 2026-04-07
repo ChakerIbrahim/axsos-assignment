@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Performance Monitor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="whitebar">
+        <h1>System Performance Monitor</h1>
+        <div class="cards" >
+            <div class="card">
+                <label for="CPU">🔥 CPU Usage</label>
+                <meter value="65" min="0" max="100" low="64" high="66">65%</meter>
+                <small>65% usage</small>
+            </div>
+            <div class="card">
+                <label for="RAM">💾 RAM Usage</label>
+                <meter value="6" min="0" max="16" low="7" high="66">65%</meter>
+                <small>6 GB of 16 GB used </small>
+            </div>
+            <div class="card">
+                <label for="Disk">📀 Disk Usage</label>
+                <meter min="0" max="100" low="30" high="80" optimum="20" value="90"></meter>
+                <small>420 GB of 512 GB used </small>
+            </div>
+        </div>    
+        <div class="cards2">
+            <div class="card">
+                <label for="File Transfer">📂 File Transfer</label>
+                <progress value="70" max="100">70%</progress>
+                <small>70% completed</small>
+            </div>
+            <div class="card">
+                <label for="Network Activity">🌐 Network Activity</label>
+                <progress value="30" max="100">30%</progress>
+                <small>Current load: 30% </small>
+            </div>
+            <div class="card">
+                <label for="System Tasks">⚡ System Tasks</label>
+                <progress value="45" max="100">45%</progress>
+                <small>Processing tasks: 45% </small>
+            </div>
+        </div>    
+    </div>
+</body>
+</html>
