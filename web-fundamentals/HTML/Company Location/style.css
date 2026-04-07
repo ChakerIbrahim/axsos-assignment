@@ -1,0 +1,32 @@
+main{
+    display: flex;
+    align-items: center;
+    /* margin-left: 700px;
+    margin-top: 100px; */
+    margin: 0 auto;
+    gap: 30px;
+}
+div div{
+    background-color: rgb(212, 206, 235);
+    /* width: 34%; */
+    width: 30em;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    height: 10em;
+}
+iframe{
+    /* width: 30%; */
+    height: 28em;
+    width:28em ;
+    border: 1px solid rgb(245, 206, 206);
+    border-radius: 16px;
+}
+main>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+body{
+    background-color: rgb(148, 146, 143);
+}
