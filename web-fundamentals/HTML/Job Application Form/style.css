@@ -1,0 +1,42 @@
+.whitebar{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    height: 50em;
+    background-color: white;
+    gap: 10px;
+}
+.firstpart{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.secondpart{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+button{
+    background-color: green;
+    color:white;
+    height:30px;
+}
+body{
+    background-color: black;
+}
+.cv{
+    border: 1px solid black;
+    height: 20px;
+    padding: 10px;
+}
+.work{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.space{
+    display: flex;
+    justify-content: space-evenly;
+}

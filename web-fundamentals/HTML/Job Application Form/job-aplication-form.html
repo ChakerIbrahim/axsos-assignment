@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="whitebar">
+        <h1>Job Application Form</h1>
+        <form>
+            <div class="firstpart">
+                <label for="Full Name">Full Name:</label>
+                <input type="text" maxlength="50" id="Full-Name" title="Your Ful Name">
+                <label for="Email" >Email Address:</label>
+                <input type="email" required id="Email" title="Your Email">
+                <label for="Phone Number">Phone Number:</label>
+                <input type="number" id="Phone-Number" title="Your Phone Number">
+                <label for="Years of Experience">Years of Experience:</label>
+                <input type="number" id="YearsofExperience" placeholder="Enter a number between 0 and 30" min="0" max="30" title="Your Years of Experience">
+                <label for="Salary Range">Salary Range:</label>
+                <input type="number" id="Salary-Range" title="Your Salary">
+                <fieldset class="work">
+                    <legend><strong>Preferred Work Type</strong></legend>
+                    <div class="space">
+                        <input type="radio" id="Remote">
+                        <input type="radio" id="On=site">
+                        <input type="radio" id="Hybrid">
+                    </div>
+                    <div class="space">
+                        <label for="remote" id="Remote">Remote</label>
+                        <label for="On-site" id="On=site">On-site</label>
+                        <label for="Hybrid" id="Hybrid">Hybrid</label>
+                    </div>
+                    
+                </fieldset>
+                <label for="CV">Upload CV (PDF only):</label>
+                <input class="cv" type="file" title="Upload Your File">
+                <label for="CL">Upload Cover Letter (PDF only):</label>
+                <input class="cv" type="file" title="Upload Your File">
+                <label for="ID">Application ID(auto-generated):</label>
+                <input type="text" id="ID" title="Your ID">
+                <button>Reset</button>
+                <button>Submit Application</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
