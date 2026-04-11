@@ -1,0 +1,50 @@
+*{
+    font-size: 20px;
+}
+.no-transform{
+    text-transform: none;
+}
+.capitalize{
+    text-transform: capitalize;
+    color: blue;
+}
+.uppercase{
+    text-transform: uppercase;
+    color: red;
+}
+.lowercase{
+    text-transform: lowercase;
+    color: green;
+}
+h1{
+    text-align: center;
+    font-size: 40px;
+}
+
+.whitebar{
+    width: 80%;
+    background-color: white;
+    margin: 0 auto;
+    padding: 50px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+body{
+    background-color: grey;
+}
+.letterspacing{
+    letter-spacing: 5px;
+}
+.wordspacing{
+    word-spacing: 20px;
+}
+.lineheight{
+    line-height: 50px;
+}
+.bottom-box{
+    background-color: rgb(190, 184, 184);
+    border-left:4px solid black; 
+    padding: 10px;
+}
