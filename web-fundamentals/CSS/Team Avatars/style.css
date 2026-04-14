@@ -1,0 +1,95 @@
+/* Basic Reset & Body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+}
+
+/* Main Container */
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Title */
+.main h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.8rem;
+    color: #333;
+}
+
+/* Cards Container */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+/* Team Member Card */
+.teammember {
+    background-color: white;
+    width: 220px;
+    padding: 25px 15px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.teammember:hover {
+    transform: translateY(-8px);
+}
+
+/* Masked Images */
+.teammember img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 20px;
+    
+    /* Border + Soft Shadow */
+    border: 6px solid #fff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* === MASK 1: Circular / Radial Gradient === */
+.teammember:nth-child(1) img,
+.teammember:nth-child(3) img {
+    -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 70%);
+    mask-image: radial-gradient(circle at center, black 60%, transparent 70%);
+    border-radius: 50%; /* fallback */
+}
+
+/* === MASK 2: Soft-rounded Rectangular SVG Mask === */
+.teammember:nth-child(2) img,
+.teammember:nth-child(4) img {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' rx='40' ry='40' fill='black'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' rx='40' ry='40' fill='black'/%3E%3C/svg%3E");
+    border-radius: 30px; /* fallback */
+}
+
+/* Text Styling */
+.teammember h2 {
+    font-size: 1.4rem;
+    color: #222;
+    margin-bottom: 6px;
+}
+
+.teammember p {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+}

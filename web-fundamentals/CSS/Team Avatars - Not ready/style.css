@@ -1,0 +1,23 @@
+img{
+    width: 100px;
+}
+.cards{
+    display: flex;
+    gap: 40px;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.teammember{
+    background-color: aqua;
+    width: 20em;
+    height: 15em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
