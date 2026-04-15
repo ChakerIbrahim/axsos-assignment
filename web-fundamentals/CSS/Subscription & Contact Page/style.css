@@ -1,0 +1,163 @@
+body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #dcd5d5;
+
+}
+
+.main {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    min-width: 500px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 25%;
+    min-width: 250px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.starter {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    border-radius: 20px;
+    border-top: 5px solid #4b95c5;
+    padding: 20px;
+    background-color: white;
+}
+
+.professional {
+    border: 1px solid black;
+    border-radius: 20px;
+    border-top: 5px solid #40a36b;
+    padding: 20px;
+    background-color: white;
+}
+
+.enterprise {
+    border: 1px solid black;
+    border-radius: 20px;
+    border-top: 5px solid #d59357;
+    padding: 20px;
+    background-color: white;
+}
+
+p::before {
+    content: "✔ ";
+}
+
+.bottomwhitebar {
+    background-color: white;
+    width: 50%;
+    height: 25em;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    /* align-items: center; */
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    height: 4em;
+    padding: 10px;
+
+}
+
+textarea {
+    height: 7em;
+    padding: 10px;
+}
+
+button {
+    background-color: #3598db;
+    color: white;
+    width: 40%;
+    height: 4em;
+    border-radius: 10px;
+    align-self: center;
+}
+
+.head {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.starter:hover {
+    border: 5px solid blue;
+}
+
+.professional:hover {
+    border: 5px solid green;
+}
+
+.enterprise:hover {
+    border: 5px solid orange;
+}
+
+.starter p::selection {
+    background-color: blue;
+    color: white;
+}
+
+.professional p::selection {
+    background-color: green;
+    color: white;
+}
+
+.enterprise p::selection {
+    background-color: orange;
+    color: white;
+}
+
+button:hover {
+    background-color: #4b95c5;
+}
+
+button:active {
+    scale: 0.9;
+    transition: 0.5s ease-in-out;
+}
+
+textarea:focus {
+    border: 3px solid green;
+
+}
+
+input:valid:not(:placeholder-shown),
+textarea:valid:not(:placeholder-shown) {
+    border-color: yellow;
+    box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.12);
+}
+
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 5px rgba(239, 68, 68, 0.12);
+}
