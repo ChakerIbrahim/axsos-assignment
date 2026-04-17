@@ -1,0 +1,45 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8em;
+}
+.whitebox{
+    background-color: #d4e5f6;
+    padding: 20px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+}
+p{
+    font-size: 20px;
+}
+.overlay{
+    background-color: gray;
+    width: 35em;
+    height: 25em;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    position: relative;
+    bottom:350px ;
+}
+img{
+    width: 100px;
+    border: 2px solid green;
+    border-radius: 50%;
+}
+button{
+    background-color: rgb(102, 205, 239);
+    color: white;
+    width: 7em;
+    height: 3em;
+    border-radius: 10px;
+    border: none;
+}

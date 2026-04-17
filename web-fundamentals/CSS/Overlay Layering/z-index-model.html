@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay Layering</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Welcome!</h1>
+        <p>This is a simple wep page example demonstrating how the z-index property can </p>
+        <p>place the modal above everything.</p>
+        <div class="whitebox">
+            <h2>About</h2>
+            <p>This card demonstrates how regular page</p>
+            <p>content stays behind the modal window.</p>
+        </div>
+        <div class="overlay">
+            <img src="check-mark-icon-tick-symbol-260nw-1441134716.webp" alt="check mark">
+            <h2>Sucess Message Title</h2>
+            <p>Well done, you pressed a button</p>
+            <button onclick="removeBox(this)">OK</button>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
