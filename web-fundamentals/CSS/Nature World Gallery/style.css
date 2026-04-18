@@ -1,0 +1,35 @@
+img{
+    width: 450px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+header{
+    background-color: #536555;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+main{
+    display: grid;
+    grid-template-columns: 450px 450px 450px;
+    grid-template-rows: 400px 400px 400px;
+    gap: 30px;
+    background-color: lightblue;
+    height: 70em;
+    padding: 50px;
+}
+.card{
+    background-color: white;
+    border-radius: 20px;
+    /* padding: 10px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card p{
+    margin: 0;
+}
+.card:hover{
+    transform: scaleX(1.1);
+}
