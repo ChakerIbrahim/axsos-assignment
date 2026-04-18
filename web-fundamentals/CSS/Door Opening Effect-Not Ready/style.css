@@ -1,0 +1,17 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.black{
+    background-color: black;
+    height: 30em;
+    width: 25em;
+    margin-top: 80px;
+    padding: 15px;
+}
+.brown{
+    background-color: brown;
+    width: 25em;
+    height: 30em;
+}
