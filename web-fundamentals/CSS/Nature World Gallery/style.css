@@ -31,5 +31,5 @@ main{
     margin: 0;
 }
 .card:hover{
-    transform: scaleX(1.1);
+    transform: scale(1.05);
 }

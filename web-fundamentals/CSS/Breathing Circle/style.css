@@ -1,0 +1,24 @@
+div{
+    background-color: aqua;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 30em;
+    animation: get-bigger 5s infinite ;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@keyframes get-bigger{
+    0%{
+        scale: 1.5;
+    }
+    50%{
+        scale:0.5;
+    }
+    100%{
+        scale:2;
+    }
+}
