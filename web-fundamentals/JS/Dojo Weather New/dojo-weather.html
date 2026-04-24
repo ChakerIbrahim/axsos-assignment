@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="dojo-weather.css">
+</head>
+<body>
+    <nav>
+        <h1>DojoWeather</h1>
+        <ul class="navbaritems">
+            <li onclick="showalert(this)">Burbank</li>
+            <li onclick="showalert(this)">Chicago</li>
+            <li onclick="showalert(this)">Dallas</li>
+        </ul>
+    </nav>
+    <header>
+        <h2>San Jose</h2>
+        <div class="display-flex">
+            <p>show temperature in</p>
+        <select onchange="changeTemp(this.value)" name="temperature" id="">
+            <option value="c">C</option>
+            <option value="f">F</option>
+        </select>
+        </div>
+    </header>
+    <section class="cards">
+        <div class="card">
+            <h3>Today</h3>
+            <img class="status" src="Static/some_rain.png" alt="rain">
+            <p>some rain</p>
+            <div >
+                <span class="temp red">20°</span>
+                <span class="temp blue">18°</span>
+            </div>
+            
+        </div>
+        <div class="card">
+            <h3>Tomorrow</h3>
+            <img class="status" src="Static/some_sun.png" alt="sun">
+            <p>some sun</p>
+            <div class="display">
+                <span class="temp red">27°</span>
+                <span class="temp blue">19°</span>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Friday</h3>
+            <img class="status" src="Static/some_clouds.png" alt="clouds">
+            <p>some clouds</p>
+            <div class="display">
+                <span class="temp red">21°</span>
+                <span class="temp blue">16°</span>
+            </div>
+        </div>   
+        <div class="card">
+            <h3>Saturday</h3>
+            <img class="status" src="Static/some_sun.png" alt="sun">
+            <p>some sun</p>
+            <div class="display">
+                <span class="temp red">21°</span>
+                <span class="temp blue">16°</span>
+            </div>
+        </div>                             
+    </section>
+    <section class="cookies">
+        <img src="Static/cookie.png" alt="cookies">
+        <div>
+            <h4>Stop! Cookie time </h4>
+            <p>We use cookies (sadly not the edible ones) to personalize content and ads, to provide social media features and to analyse our traffic. <a href="#">Read more...</a></p>
+        </div>
+        
+        <button onclick="disappear(this)">I Accept</button>
+    </section>
+    <script src="dojo-weather.js"></script>
+</body>
+</html>

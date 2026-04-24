@@ -1,0 +1,94 @@
+body{
+    margin: 0 auto;
+}
+nav{
+    display: flex;
+    background-color: #9fc5f8;
+    color: white;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+}
+ul li{
+    list-style: none;
+    font-size: 25px;
+    font-weight: bold;
+}
+.navbaritems{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+h1{
+    font-size: 40px;
+    font-weight: bold;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 510px;
+    width: 39%;
+    margin: 0 auto;
+    border-bottom: 2px solid black;
+}
+.display-flex{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+h2{
+    font-size: 35px;
+}
+.cards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    width: 70%;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #b8b1b1;
+    padding: 10px;
+    width: 11%;
+}
+.status{
+    border-radius: 100%;
+    width: 150px;
+}
+.cookies{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid black;
+    margin-top: 20px;
+    width: 35%;
+    padding: 40px;
+    height: 5em;
+    gap: 20px;
+}
+.cookies p{
+    width: 25em;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.display{
+    display: flex;
+    gap: 60px;
+}
+.red{
+    color: red;
+    font-size: 25px;
+}
+.blue{
+    color: blue;
+    font-size: 25px;
+}

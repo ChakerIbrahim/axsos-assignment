@@ -1,3 +1,10 @@
+function showalert(){
+    alert('Loading weather report...')
+}
+function disappear(){
+    var doc =document.querySelector('.cookies');
+    doc.remove();
+}
 function changeTemp(tempUnit){
       console.log(tempUnit);
    var tempretures=document.querySelectorAll(".temp");

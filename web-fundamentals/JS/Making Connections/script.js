@@ -2,11 +2,12 @@ console.log("page loaded...");
 
 function changeText(){
     var doc =document.querySelector('.name')
-    doc.innerHTML= 'Chaker Ibrahim';
+    doc.innerHTML= prompt("Enter your name");
 }
 function removeText(element){
-    const item = element.closest('.card-list-item');
-    item.innerHTML = "";
+    const item = element.parentElement;
+    const item2 = item.parentElement;
+    item2.innerHTML = "";
 
 }
 function connectionRequests(element){
@@ -23,4 +24,12 @@ function yourConnections(element){
     var count= parseInt(doc2.innerHTML)
     count++;
     doc2.innerHTML=count;
+}
+function signInOut(element){
+    if(element.innerText=='Sign Out'){
+        element.innerText='Sign in';
+    }
+    else{
+        element.innerText='Sign Out';
+    }
 }

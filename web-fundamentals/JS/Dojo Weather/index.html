@@ -25,9 +25,9 @@
             <h2>San Jose</h2>
             <div class="flex">
                 <p>show temperature in </p>
-                <select name="" id="">
-                    <option onclick="changeToF(); changeToF2();" value="">°F</option>
-                    <option  value="">°C</option>
+                <select onchange="changeTemp(this.value)" name="temperature" >
+                    <option value="C">°C</option>
+                    <option value="F">°F</option>
                 </select>
             </div>
         </section>
@@ -38,13 +38,15 @@
                     <h2>Today</h2>
                     <img src="some_rain.png" alt="raining">
                     <p>some rain</p>
-                    <p class="redcolor">24° <span class="bluecolor">18°</span> </p>
+                    <span class="temp blue">15</span>
+                    <span class="temp red">25</span>
                 </div>
                 <div class="weather">
                     <h2>Tomorrow</h2>
                     <img src="some_sun.png" sun">
                     <p>some sun</p>
-                    <p class="redcolor">27° <span class="bluecolor">19°</span> </p>
+                    <span class="temp blue">30</span>
+                    <span class="temp red">45</span>
                 </div>
                 <div class="weather">
                     <h2>Friday</h2>

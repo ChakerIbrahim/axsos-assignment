@@ -9,3 +9,16 @@ function pauseVideo(video){
 function subscribe(){
     alert("You subscribed")
 }
+
+function logOut(element){ 
+    var btn = document.querySelector(".btn")
+                   // ?
+    if(btn.innerText == "Login"){
+        console.log("nnnnnnnn")
+        btn.innerText = 'Logout';
+    }
+    else{
+        console.log("Test")
+        btn.innerText="Login";
+    }
+}
