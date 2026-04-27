@@ -1,0 +1,12 @@
+
+A person has many favorite food and food is favorite by many persons
+
+Each person has only one ID
+
+A city can have many people and people can be in many city
+
+A person can have many houses and many houses can have different persons 
+
+A person can speak many languages and a language can be spoken by many people
+
+A user has a local of birth , age and favorite team
