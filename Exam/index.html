@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowSync</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Nav Bar Beggin -->
+    <nav>
+        <div class="icon">
+            <img src="Static/logo.png" alt="logo">
+            <h1>GrowSync</h1>
+        </div>
+        <ul class="itens">
+            <li class="border2"><a href="#">Home</a></li>
+            <li class="border"><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+        </ul>
+    </nav>
+    <!-- Nav Bar End -->
+
+
+    <!-- Introduction -->
+    <section class="first">
+        <div class="column">
+            <h2>We offer modern solutions for growing your business</h2>
+            <p>We are team of talented designers making websites</p>
+            <button onmouseover="changeColor(this)" onmouseleave="changeColor2(this)">Get started</button>
+        </div>
+        <img src="Static/hero-img.png" alt="business">
+    <!-- Introduction -->
+
+
+    <!-- Mid Page -->
+    </section>
+    <section class="second">
+        <div class="mid">
+            <h2 class="mid-head">Who we are</h2>
+            <p class="para">We are a forward-thinking company dedicated to providing innovative solutions that fuel businesses growth. With a focus on modern technologies and strategic insights, we help businesess streamline their operations, enhance customer experiences, and scale efficiently. Whether you're looking to improve your digital presence, optimize processes, or drive new revenue streams</p>
+            <button class="changebtn" onclick="changeText(this)">Make A Change</button>
+        </div>
+        <div>
+            <img id="img2" class="secondimg" src="Static/about.jpg" alt="team">
+        </div>
+    </section>
+
+    <!-- Mid Page -->
+
+    <!-- Cards -->
+
+    <section class="third">
+        <div class="pag">
+            <h2>Our Services</h2>
+            <button onclick="addService(this)">Add Service</button>
+        </div>
+        <div id="services" class="cards">
+            <div class="card">
+                <img class="cardimg" src="Static/values-2.png" alt="service1">
+                <p>We provide modern, technology-driven solutions tailored to help you adapt, compete, and thrive in a ever-evolving market.</p>
+            </div>
+            <div class="card">
+                <img class="cardimg" src="Static/values-1.png" alt="service2">
+                <p>Whether you're a startup or and established enterprise, we focus on <span>scalable and flexible tools</span>that <span>support</span> growth at every stage.</p>
+            </div>
+            <div class="card">
+                <img class="cardimg" src="Static/values-3.png" alt="service3">
+                <p> Our services are designed to meet the unique challenges of today while positioning you for tomorrow's opportunities.</p>
+            </div>
+        </div>
+        
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

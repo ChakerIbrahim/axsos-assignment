@@ -1,0 +1,160 @@
+# 📚 Database Normalization Assignment
+
+## 📌 Overview
+
+This project demonstrates how to transform an unnormalized database design into a fully normalized structure that satisfies:
+
+* First Normal Form (1NF)
+* Second Normal Form (2NF)
+* Third Normal Form (3NF)
+
+The system models a simple student management structure where students belong to a dojo and can have multiple addresses and interests.
+
+---
+
+## 🎯 Objective
+
+The goal of this assignment is to:
+
+* Identify normalization issues in an existing ERD
+* Eliminate redundant and repeating data
+* Improve data integrity and structure
+* Implement proper relationships between entities
+
+---
+
+## ❌ Problems in Original Design
+
+The initial ERD contained several issues:
+
+* Multiple address fields (`address1`, `address2`) → violates 1NF
+* Interests stored as text → violates 1NF (multi-valued attribute)
+* Lack of proper relational structure for interests
+* Potential redundancy and poor scalability
+
+---
+
+## ✅ Final Database Design (3NF)
+
+### 🏯 Dojos Table
+
+Stores dojo (training center) information.
+
+* `id` (Primary Key)
+* `name`
+* `location`
+* `created_at`
+* `updated_at`
+
+---
+
+### 👨‍🎓 Students Table
+
+Stores student information.
+
+* `id` (Primary Key)
+* `dojo_id` (Foreign Key → dojos.id)
+* `name`
+* `created_at`
+* `updated_at`
+
+---
+
+### 🏠 Addresses Table
+
+Stores multiple addresses per student.
+
+* `id` (Primary Key)
+* `student_id` (Foreign Key → students.id)
+* `address`
+
+---
+
+### 🎯 Interests Table
+
+Stores unique interests.
+
+* `id` (Primary Key)
+* `name`
+
+---
+
+### 🔗 Student_Interests Table
+
+Handles many-to-many relationship between students and interests.
+
+* `student_id` (Foreign Key → students.id)
+* `interest_id` (Foreign Key → interests.id)
+
+---
+
+## 🔗 Relationships
+
+* One Dojo → Many Students
+* One Student → Many Addresses
+* Many Students ↔ Many Interests
+
+---
+
+## 🧠 Normalization Explanation
+
+### 1️⃣ First Normal Form (1NF)
+
+* Removed repeating groups
+* Separated addresses and interests into new tables
+
+### 2️⃣ Second Normal Form (2NF)
+
+* Ensured all attributes depend on the full primary key
+
+### 3️⃣ Third Normal Form (3NF)
+
+* Removed transitive dependencies
+* Each table represents a single concept
+
+---
+
+## 🗂️ ERD Diagram
+
+
+```
+DOJOS (1) ───────── (∞) STUDENTS
+                      │
+                      │
+                      ∞
+                  ADDRESSES
+
+STUDENTS (∞) ─── (∞) STUDENT_INTERESTS (∞) ─── (1) INTERESTS
+```
+
+---
+
+## 🛠️ Technologies Used
+
+* MySQL / SQL
+* Database Design Concepts
+* ERD Modeling
+
+---
+
+## 🚀 How to Use
+
+1. Create the database
+2. Run SQL scripts to create tables
+3. Insert sample data
+4. Test relationships using JOIN queries
+
+---
+
+## 📎 Notes
+
+* This project focuses on database design, not UI
+* The structure ensures scalability and reduces redundancy
+
+---
+
+## 👤 Author
+
+**Chaker Ibrahim**
+
+---
