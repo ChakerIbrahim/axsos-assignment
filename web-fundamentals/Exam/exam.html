@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam</title>
+    <link rel="stylesheet" href="exam.css">
+</head>
+
+<body>
+    <!-- Main Container Page with Backgroud Image -->
+    <div id="mainImage" class="main-container">
+        <!-- Nav Bar Beginning -->
+        <nav>
+            <img src="Static/content/logo.png" alt="Logo">
+            <div>
+                <ul class="navbar-items">
+                    <li class="nav-sub-items">Home</li>
+                    <li class="nav-sub-items">Products</li>
+                    <li class="nav-sub-items">Company</li>
+                    <li>Blog</li>
+                </ul>
+                <form class="navbar-rightside">
+                    <img onclick="showAlert(this)" id="search_Btn" class="search-icons search"
+                        src="Static/content/search.png" alt="search">
+                    <input type="text" id="search_Input" placeholder="search">
+                    <img onclick="playHelloSound(this)" id="soundIcon" class="search-icons sound"
+                        src="Static/content/soundicon.png" alt="sound">
+                    <audio id="hello_Sound" src="Static/content/hello.mp3"></audio>
+                </form>
+            </div>
+
+        </nav> 
+        <!-- Nav Bar Ends -->
+
+
+        <!-- Main Page Beggining -->
+        <main>
+            <h2>Be peaceful in mind and healthy in Body! </h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+            <button id="my_Element" onmouseleave="changeBackground(this)">JOIN US NOW</button>
+        </main>
+        <!-- Main Page - End -->
+    </div>
+    <!-- Cards Section - Beginning -->
+    <section>
+        <h2 class="secondheader">Our Yoga Classes</h2>
+        <p class="subheader">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor veridatis nostrum</p>
+        <div class="cards">
+            <div class="card">
+                <img class="yogatypes" src="Static/content/kundalini-yoga.jpg" alt="kundalini-yoga">
+                <h3>Kundalini yoga</h3>
+                <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="card">
+                <img class="yogatypes" src="Static/content/basic-yoga.jpg" alt="classic-yoga">
+                <h3>Classic yoga</h3>
+                <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+            <div class="card">
+                <img class="yogatypes" src="Static/content/advanced-yoga-poses.jpg" alt="advanced-yoga">
+                <h3>Advanced yoga</h3>
+                <p>Lorem ipsum dolor, sit amet</p>
+            </div>
+        </div>
+    </section>
+    <!-- Cards Section - End -->
+
+
+    <!-- Footer- Beginning -->
+    <footer>
+        <p>&copy; March 2025 All Rights Reserved. Created by <a href="#">Link to Github</a></p>
+        <div>
+            <img src="Static/content/icons8-github-30.png" alt="github">
+            <img class="linkedin" src="Static/content/icons8-linkedin-50.png" alt="linkedin">
+            <img src="Static/content/facebook.png" alt="facebook">
+            <img src="Static/content/icons8-google-plus-30.png" alt="google">
+        </div>
+    </footer>
+    <!-- Footer- ENd -->
+    <script src="exam.js"></script>
+</body>
+
+</html>

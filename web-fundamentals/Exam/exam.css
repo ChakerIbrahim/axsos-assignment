@@ -1,0 +1,121 @@
+/* Page Reset & Main Container */
+*{
+    padding: 0;
+    margin: 0;
+}
+.main-container{
+    background-image: url(Static/content/yoga-header.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 70em;
+}
+/* Nav-Bar */
+.navbar-items{
+    color: white;
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    text-decoration: underline;
+    margin-right: 50px;
+}
+.nav-sub-items{
+    border-right: 2px solid white;
+    padding: 0 10px;
+}
+.search-icons{
+    width: 20px;
+}
+input[type="text"] {
+    border: 4px solid black;
+    padding: 5px 0 0 25px;
+    width: 21em;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 3px solid white;
+}
+.navbar-rightside{
+    display: flex;
+    flex-direction: column;
+}
+.search{
+    position: relative;
+    top: 25px;
+    left: 10px;
+}
+.sound{
+    position: absolute;
+    top: 68px;
+    right: 90px;
+}
+/* Main Container */
+main{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 30px;
+}
+main h2{
+    font-size: 50px;
+}
+main p{
+    font-size: 30px;
+}
+button{
+    background-color: #e0554b;
+    color: white;
+    height: 5em;
+    width: 15em;
+    font-size: 15px;
+    border: 5px solid black;
+    box-shadow: 4px 4px 0 black;
+}
+/* Cards Page  */
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    justify-content: center;
+}
+.cards{
+    display: flex;
+    gap: 200px;
+}
+.yogatypes{
+    border-radius: 50%;
+    width: 150px;
+    border: 2px solid black;
+}
+/* Footer */
+footer{
+    background-color: #d04104;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    align-items: center;
+    margin-top: 100px;
+}
+.linkedin{
+    width: 28px;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.secondheader{
+    font-size: 35px;
+}
+.subheader{
+    font-size: 20px;
+    width: 27%;
+    text-align: center;
+}
