@@ -1,0 +1,35 @@
+
+
+The pip list command is used in your terminal or command prompt to display a table of all the Python packages currently installed in your active environment, along with their version numbers
+
+
+To deactivate a Python virtual environment, simply type the command deactivate in your terminal or command prompt.
+
+
+
+The command pip list is used in a terminal or command prompt to display a table of all installed Python packages and their current versions in your active environment.
+
+
+
+To activate your Python virtual environment on Windows located at myEnvironments/py3Env/Scripts/activate, run the following command in your command prompt or terminal:
+
+
+To install Django, run the following command in your terminal or command prompt
+
+
+pip freeze is a command-line tool used in Python to output a list of all currently installed packages and their exact versions in a specific format. This format is primarily used to create a requirements.txt file, which allows other developers or deployment systems to recreate your exact environment
+
+
+The cd ~/Desktop command changes the current working directory to the Desktop folder in the user's home directory on Unix-like systems (Linux/macOS). The tilde (~) represents the current user's home directory, making the command work regardless of the current location. It is case-sensitive, requiring a capital 'D'
+
+
+the command pip freeze > requirements.txt is used to create a snapshot of all the python packages currently installed in your environment, including their exact versions.
+it takes the output of pip freeze and redirects it into a new text file called requirements.txt.
+
+
+
+To uninstall Django from your system or virtual environment, use the following command in your terminal or command prompt:bashpip uninstall django
+
+
+
+The command pip show Django displays detailed information about your currently installed Django package, including its version number, installation path, and dependencies.
