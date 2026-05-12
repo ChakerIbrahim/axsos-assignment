@@ -20,5 +20,9 @@ def seventh(word,num):
     return f"{word}" * num
 
 
+@app.errorhandler(404)
+def error(error):
+    return "Error , please try again"
+
 if __name__ == "__main__":
     app.run(debug=True)
