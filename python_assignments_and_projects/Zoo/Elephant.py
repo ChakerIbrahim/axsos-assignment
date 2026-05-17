@@ -12,7 +12,7 @@ class Elephant(Animal) :
 
     def feed(self):
         self.health_level=self.health_level+15
-        self.hapiness_level=self.hapiness_level
+        self.hapiness_level=self.hapiness_level+10
 
         return self
     def displa_info(self):

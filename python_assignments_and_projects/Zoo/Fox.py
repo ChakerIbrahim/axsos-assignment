@@ -11,8 +11,6 @@ class Fox(Animal) :
         # self.hapiness_level=hapiness_level
         
         
-    def displa_info(self):
-        pass
     def feed(self):
         self.health_level=self.health_level+20
         self.hapiness_level=self.hapiness_level+30
