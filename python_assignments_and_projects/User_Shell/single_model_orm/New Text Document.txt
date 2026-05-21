@@ -1,0 +1,32 @@
+
+
+from users_app.models import *
+
+
+ Users.objects.create(first_name="Chaker" , last_name="Ibrahim" , email_addre
+ss="chaker703@hotmail.com" , age=29)
+
+Users.objects.create(first_name="Ramez" , last_name="Atallah" , email_address="ramez@g
+amil.ps", age=25)
+
+ Users.objects.create(first_name="Jalil" , last_name="Wasaya" , email_address="jalil23@
+gamil.com", age=30)
+
+
+user1=Users.objects.all()
+
+last_user=Users.objects.last()
+
+first_user=Users.objects.first()
+
+ user3=Users.objects.get(id=3)
+>>> user3.last_name="Shaheen"
+>>>
+ user3.save()
+
+>>> user2=Users.objects.get(id=2)
+>>> user2.delete()
+
+ sorted_users=Users.objects.all().order_by("first_name")
+
+sorted_users=Users.objects.all().order_by("-first_name")

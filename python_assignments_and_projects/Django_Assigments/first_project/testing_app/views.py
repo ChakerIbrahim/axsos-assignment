@@ -11,3 +11,5 @@ def ibrahim(request):
 def some_function(request):
     request.session['name'] = request.POST['name']
     request.session['counter'] = 100
+
+
