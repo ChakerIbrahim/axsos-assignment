@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold Game</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a2e;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #a0aec0;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+        }
+
+        /* Gold display */
+        .gold-display {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .gold-display label {
+            font-size: 1.1rem;
+            color: #a0aec0;
+            margin-right: 10px;
+        }
+        .gold-display .gold-value {
+            display: inline-block;
+            background: #2d3748;
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            padding: 8px 24px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ffd700;
+            min-width: 80px;
+        }
+
+        /* Win conditions bar */
+        .win-bar {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 0.88rem;
+            color: #a0aec0;
+        }
+        .win-bar span { color: #ffd700; font-weight: bold; }
+
+        /* Game over banner */
+        .game-over-banner {
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        .game-over-banner.win  { background: #276749; color: #9ae6b4; }
+        .game-over-banner.lose { background: #742a2a; color: #feb2b2; }
+
+        /* Location cards */
+        .locations {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .location-card {
+            background: #2d3748;
+            border: 2px solid #4a5568;
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            width: 180px;
+            transition: transform 0.15s, border-color 0.15s;
+        }
+        .location-card:hover { transform: translateY(-4px); border-color: #ffd700; }
+
+        .location-card h2 { font-size: 1.2rem; color: #ffd700; margin-bottom: 8px; }
+        .location-card p  { font-size: 0.82rem; color: #a0aec0; margin-bottom: 16px; }
+
+        .location-card button {
+            padding: 9px 22px;
+            background: #ffd700;
+            color: #1a1a2e;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .location-card button:hover { background: #f6c200; }
+        .location-card button:disabled { background: #4a5568; color: #718096; cursor: not-allowed; }
+
+        /* Also show ninja bonus URL links */
+        .location-card .url-link {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.75rem;
+            color: #718096;
+            text-decoration: none;
+        }
+        .location-card .url-link:hover { color: #a0aec0; }
+
+        /* Activity log */
+        .activities-section { max-width: 800px; margin: 0 auto; }
+        .activities-section h3 {
+            font-size: 1rem;
+            color: #a0aec0;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .activity-log {
+            background: #2d3748;
+            border-radius: 10px;
+            padding: 16px;
+            min-height: 80px;
+            max-height: 260px;
+            overflow-y: auto;
+        }
+
+        .activity-item {
+            padding: 6px 0;
+            font-size: 0.88rem;
+            border-bottom: 1px solid #3a4a5c;
+        }
+        .activity-item:last-child { border-bottom: none; }
+        .activity-item.green { color: #68d391; }
+        .activity-item.red   { color: #fc8181; }
+
+        .empty-log { color: #4a5568; font-style: italic; text-align: center; padding: 20px 0; }
+
+        /* Bottom controls */
+        .controls {
+            text-align: center;
+            margin-top: 24px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-reset {
+            padding: 10px 28px;
+            background: transparent;
+            border: 2px solid #e53e3e;
+            color: #e53e3e;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-reset:hover { background: #e53e3e; color: white; }
+
+        /* SENSEI BONUS: win conditions form */
+        .win-conditions-form {
+            max-width: 400px;
+            margin: 0 auto 28px;
+            background: #2d3748;
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-align: center;
+        }
+        .win-conditions-form h3 {
+            color: #ffd700;
+            margin-bottom: 14px;
+            font-size: 1rem;
+        }
+        .win-conditions-form .fields {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        .win-conditions-form label { font-size: 0.82rem; color: #a0aec0; display: block; margin-bottom: 4px; }
+        .win-conditions-form input {
+            width: 100px;
+            padding: 8px;
+            background: #1a1a2e;
+            border: 2px solid #4a5568;
+            border-radius: 6px;
+            color: #e0e0e0;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        .win-conditions-form button {
+            padding: 9px 28px;
+            background: #6b46c1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .win-conditions-form button:hover { background: #553c9a; }
+    </style>
+</head>
+<body>
+
+    <h1>⚔️ Ninja Gold</h1>
+    <p class="subtitle">Help your ninja earn gold by visiting different locations!</p>
+
+    <!-- Gold display -->
+    <div class="gold-display">
+        <label>Your Gold:</label>
+        <span class="gold-value">{{ gold }}</span>
+    </div>
+
+    <!-- SENSEI BONUS: Win conditions display -->
+    {% if win_conditions.goal %}
+        <div class="win-bar">
+            Goal: <span>{{ win_conditions.goal }} gold</span> &nbsp;|&nbsp;
+            Moves used: <span>{{ win_conditions.moves_used }}</span> / <span>{{ win_conditions.max_moves }}</span>
+        </div>
+    {% endif %}
+
+    <!-- SENSEI BONUS: Game over banner -->
+    {% if game_over %}
+        <div class="game-over-banner {{ game_result }}">
+            {% if game_result == 'win' %}
+                🏆 You Win! You reached your gold goal!
+            {% else %}
+                💀 You Lose! You ran out of moves.
+            {% endif %}
+            <br>
+            <a href="{% url 'reset' %}" style="color:inherit; font-size:0.9rem;">Play again →</a>
+        </div>
+    {% endif %}
+
+    <!-- SENSEI BONUS: Set win conditions form (only show if no conditions set yet) -->
+    {% if not win_conditions.goal and not game_over %}
+        <div class="win-conditions-form">
+            <h3>⚙️ Set Win Conditions (optional)</h3>
+            <form method="POST" action="{% url 'set_win_conditions' %}">
+                {% csrf_token %}
+                <div class="fields">
+                    <div>
+                        <label>Gold Goal</label>
+                        <input type="number" name="goal" value="100" min="10">
+                    </div>
+                    <div>
+                        <label>Max Moves</label>
+                        <input type="number" name="max_moves" value="10" min="1">
+                    </div>
+                </div>
+                <button type="submit">Start with these conditions</button>
+            </form>
+        </div>
+    {% endif %}
+
+    <!-- Location cards -->
+    <div class="locations">
+
+        <!-- Farm -->
+        <div class="location-card">
+            <h2>🌾 Farm</h2>
+            <p>(earns 10–20 gold)</p>
+            <form method="POST" action="{% url 'process_money' %}">
+                {% csrf_token %}
+                <input type="hidden" name="location" value="farm">
+                <button type="submit" {% if game_over %}disabled{% endif %}>Find Gold!</button>
+            </form>
+            <!-- NINJA BONUS: URL version -->
+            <a href="{% url 'process_money_url' 'farm' %}" class="url-link">via URL →</a>
+        </div>
+
+        <!-- Cave -->
+        <div class="location-card">
+            <h2>🗻 Cave</h2>
+            <p>(earns 10–20 gold)</p>
+            <form method="POST" action="{% url 'process_money' %}">
+                {% csrf_token %}
+                <input type="hidden" name="location" value="cave">
+                <button type="submit" {% if game_over %}disabled{% endif %}>Find Gold!</button>
+            </form>
+            <a href="{% url 'process_money_url' 'cave' %}" class="url-link">via URL →</a>
+        </div>
+
+        <!-- House -->
+        <div class="location-card">
+            <h2>🏠 House</h2>
+            <p>(earns 10–20 gold)</p>
+            <form method="POST" action="{% url 'process_money' %}">
+                {% csrf_token %}
+                <input type="hidden" name="location" value="house">
+                <button type="submit" {% if game_over %}disabled{% endif %}>Find Gold!</button>
+            </form>
+            <a href="{% url 'process_money_url' 'house' %}" class="url-link">via URL →</a>
+        </div>
+
+        <!-- Quest -->
+        <div class="location-card">
+            <h2>⚔️ Quest</h2>
+            <p>(earns/takes 0–50 gold)</p>
+            <form method="POST" action="{% url 'process_money' %}">
+                {% csrf_token %}
+                <input type="hidden" name="location" value="quest">
+                <button type="submit" {% if game_over %}disabled{% endif %}>Find Gold!</button>
+            </form>
+            <a href="{% url 'process_money_url' 'quest' %}" class="url-link">via URL →</a>
+        </div>
+
+    </div>
+
+    <!-- Activity log -->
+    <div class="activities-section">
+        <h3>Activities:</h3>
+        <div class="activity-log">
+            {% if activities %}
+                {% for activity in activities %}
+                    <div class="activity-item {{ activity.color }}">
+                        {{ activity.message }} ({{ activity.time }})
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="empty-log">No activities yet. Go find some gold!</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+        <a href="{% url 'reset' %}" class="btn-reset">↺ Reset Game</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+dojo1=Dojo.objects.create(name='Aws', city='Tullkarem', state='Palestine')
+dojo2=Dojo.objects.create(name='Chaker', city='AbuFalah', state='Palestine')
+dojo3=Dojo.objects.create(name='Husni', city='Ramallah', state='Palestine')
+
+dojo1.delete()
+dojo2.delete()
+dojo3.delete()
+
+dojo1=Dojo.objects.create(name='Jalil', city='Ramallah', state='Palestine')
+dojo2=Dojo.objects.create(name='Murad', city='Birzeit', state='Palestine')
+dojo3=Dojo.objects.create(name='Ramez', city='Nablus', state='Palestine')
+
+#first dojo
+
+ninja1=Ninja.objects.create(first_name="Aws", last_name="Naruto",dojo = Dojo.objects.get(id = 4))
+ninja2=Ninja.objects.create(first_name="Chaker", last_name="OnePiece",dojo = Dojo.objects.get(id = 4))
+ninja3=Ninja.objects.create(first_name="Manar", last_name="Django",dojo = Dojo.objects.get(id = 4))
+
+# secound dojo 
+
+ninja4=Ninja.objects.create(first_name="Awss", last_name="Narutos",dojo = Dojo.objects.get(id = 5))
+ninja5=Ninja.objects.create(first_name="Chakers", last_name="OnePieces",dojo = Dojo.objects.get(id = 5))
+ninja6=Ninja.objects.create(first_name="Manars", last_name="Djangos",dojo = Dojo.objects.get(id = 5))
+
+# third dojo
+
+ninja7=Ninja.objects.create(first_name="Awsss", last_name="Narutoss",dojo = Dojo.objects.get(id = 6))
+ninja8=Ninja.objects.create(first_name="Chakerss", last_name="OnePiecess",dojo = Dojo.objects.get(id = 6))
+ninja9=Ninja.objects.create(first_name="Manarss", last_name="Djangoss",dojo = Dojo.objects.get(id = 6))
+
+
+Ninja.objects.filter(dojo = 4)
+Ninja.objects.filter(dojo = Dojo.objects.last())
+Dojo.objects.last()
+desc=models.TextField(max_length=255)
+
+ Dojo.objects.create(name="Rand", city="Unknown",state="Mart")

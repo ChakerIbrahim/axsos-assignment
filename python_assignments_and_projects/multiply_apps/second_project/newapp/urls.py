@@ -5,8 +5,10 @@
 
 from django.urls import path
 from . import views  # Import view functions from this app's views.py
+from django.views.generic import RedirectView
 
 urlpatterns = [
+    path('', RedirectView.as_view(url='/blogs')),  # Add this
     # /blogs - displays a list of all blogs (index view)
     path('blogs', views.index),
 
