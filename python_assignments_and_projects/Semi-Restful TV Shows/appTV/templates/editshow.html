@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static  'style2.css' %}">
+
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>Update the Show</h1>
+        <form action="{% url 'editshow' show.id %}" method="POST">
+            {% csrf_token %}
+            <label for="">Title</label>
+            <input type="text" name="title" value="{{ show.title }}">
+            <label for="">Network</label>
+            <input type="text" name="network" value ="{{ show.network }}">
+            <label for="">Release Date</label>
+            <input type="date" name="release_date" value="{{ show.release_date|date:'Y-m-d' }}">
+            <label for="">Description</label>
+            <textarea name="desc">{{ show.desc }}</textarea>
+            <button type="submit">Update</button>
+        </form>
+        <a href="{% url 'home' %}">Back to home</a>
+    </main>
+</body>
+</html>

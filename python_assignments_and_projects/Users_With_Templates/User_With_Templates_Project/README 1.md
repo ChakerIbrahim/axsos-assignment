@@ -102,8 +102,7 @@ http://127.0.0.1:8000
 
 ## Screenshot
 
-Add your screenshot inside the project and name it:
-    
+
 ```text
 
 ```
