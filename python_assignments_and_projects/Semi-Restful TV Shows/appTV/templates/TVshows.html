@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static  'resultstyle.css' %}">
+
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>TV Show:-  </h1>
+        <h3>Title:-{{ tv_id.title }} </h3>
+        <h3>Network:-{{ tv_id.network }} </h3>
+        <h3>Release Date:-{{ tv_id.release_date }} </h3>
+        <h3>Description:-{{ tv_id.desc }} </h3>
+        <h3>Last Updated :- {{ tv_id.updated_at }} </h3>
+        <article> 
+            <a href="{% url 'editshow' %}">Edit</a>
+            <span>|</span>
+            <a href="{% url 'delete' tv_id.id %}">Delete</a>
+            <span>|</span>
+            <a href="{% url 'home' %}"> Home</a>
+        </article>
+    </main>
+</body>
+</html>
