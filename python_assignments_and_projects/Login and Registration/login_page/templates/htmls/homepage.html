@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Dashboard</title>
+</head>
+
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased flex flex-col md:flex-row">
+
+    <!-- Sidebar Navigation -->
+    <aside class="w-full md:w-64 bg-white border-b md:border-b-0 md:border-r border-slate-200 flex flex-col shrink-0">
+        <!-- Sidebar Branding -->
+        <div class="p-6 border-b border-slate-200 flex items-center justify-between">
+            <span class="text-xl font-bold tracking-tight text-purple-600">Your Company</span>
+            <span class="md:hidden text-xs bg-purple-50 text-purple-700 px-2 py-1 rounded font-medium">Menu</span>
+        </div>
+
+        <!-- Sidebar Links -->
+        <nav class="flex-grow p-4 space-y-1">
+            <a href="#"
+                class="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-sm font-semibold bg-purple-50 text-purple-700 transition-all">
+                <span>📊 Dashboard</span>
+            </a>
+            <a href="#"
+                class="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all">
+                <span>👤 Profile Settings</span>
+            </a>
+            <a href="#"
+                class="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all">
+                <span>🔒 Security</span>
+            </a>
+        </nav>
+
+        <!-- Sidebar Footer Context (Logout) -->
+        <div class="p-4 border-t border-slate-200 hidden md:block">
+            <a href="{% url 'login_page:logout' %}"
+                class="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50 transition-all">
+                <span>🚪 Log out</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Workspace Area -->
+    <div class="flex-grow flex flex-col min-h-screen">
+
+        <!-- Header -->
+        <header
+            class="bg-white border-b border-slate-200 py-4 px-6 sm:px-8 flex justify-between items-center shadow-sm">
+            <div>
+                <p class="text-xs font-semibold text-purple-600 uppercase tracking-wider">Workspace</p>
+                <h1 class="text-xl font-bold text-slate-900">Welcome, {{ user.first_name }} {{ user.last_name }}</h1>
+            </div>
+            <!-- Mobile-visible logout link -->
+            <a href="{% url 'login_page:logout' %}" class="md:hidden text-sm font-medium text-red-600 hover:underline">Log out</a>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="flex-grow p-6 sm:p-8 space-y-6 max-w-7xl w-full mx-auto">
+
+            <!-- Protected Alert Banner -->
+            <div
+                class="bg-emerald-50 border border-emerald-200 text-emerald-800 p-4 rounded-xl flex items-start space-x-3 shadow-sm">
+                <span class="text-emerald-500 text-xl leading-none">🛡️</span>
+                <div>
+                    <p class="font-semibold text-sm">Secure Session Active</p>
+                    <p class="text-xs text-emerald-700 mt-0.5">This is a fully protected dashboard zone. Thank you for
+                        logging in!</p>
+                </div>
+            </div>
+
+            <!-- Dashboard Highlight Grid cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-md shadow-slate-100 border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div
+                            class="h-10 w-10 bg-purple-50 text-purple-600 flex items-center justify-center rounded-xl text-lg font-bold mb-4">
+                            🚀</div>
+                        <h3 class="text-base font-bold text-slate-900">Explore Features</h3>
+                        <p class="text-xs text-slate-500 mt-2 leading-relaxed">Discover custom tool configurations
+                            designed around your daily workflow automation needs.</p>
+                    </div>
+                    <button
+                        class="mt-4 text-xs font-semibold text-purple-600 hover:text-purple-700 inline-flex items-center space-x-1">
+                        <span>Get started</span> <span>&rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-md shadow-slate-100 border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div
+                            class="h-10 w-10 bg-blue-50 text-blue-600 flex items-center justify-center rounded-xl text-lg font-bold mb-4">
+                            ⚡</div>
+                        <h3 class="text-base font-bold text-slate-900">Recent Activity</h3>
+                        <p class="text-xs text-slate-500 mt-2 leading-relaxed">View security access timestamps, verified
+                            data streams, and structural file modifications instantly.</p>
+                    </div>
+                    <button
+                        class="mt-4 text-xs font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center space-x-1">
+                        <span>View history</span> <span>&rarr;</span>
+                    </button>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-md shadow-slate-100 border border-slate-100 flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+                    <div>
+                        <div
+                            class="h-10 w-10 bg-amber-50 text-amber-600 flex items-center justify-center rounded-xl text-lg font-bold mb-4">
+                            📦</div>
+                        <h3 class="text-base font-bold text-slate-900">Account Limits</h3>
+                        <p class="text-xs text-slate-500 mt-2 leading-relaxed">Monitor service allocations and storage
+                            caps provided through your active user access privileges.</p>
+                    </div>
+                    <button
+                        class="mt-4 text-xs font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center space-x-1">
+                        <span>Check status</span> <span>&rarr;</span>
+                    </button>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer inside main wrapper -->
+        <footer class="bg-white border-t border-slate-200 py-4 px-6 text-center text-xs text-slate-500 mt-auto">
+            <p>&copy; 2026 Your Company. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
