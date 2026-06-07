@@ -1,0 +1,52 @@
+{% extends 'tv_shows_app/base.html' %}
+{% block content %}
+<h1>Add a New Show</h1>
+
+{% if form.errors %}
+<div class="errors">
+    <strong>Please fix the following errors:</strong>
+    <ul>
+        {% for field in form %}
+            {% for error in field.errors %}
+                <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<form action="{% url 'tv_shows_create' %}" method="POST">
+    {% csrf_token %}
+
+    <label for="{{ form.title.id_for_label }}">Title</label>
+    {{ form.title }}
+    {% if form.title.errors %}
+        <span class="field-error">{{ form.title.errors|join:", " }}</span>
+    {% endif %}
+
+    <label for="{{ form.network.id_for_label }}">Network</label>
+    {{ form.network }}
+    {% if form.network.errors %}
+        <span class="field-error">{{ form.network.errors|join:", " }}</span>
+    {% endif %}
+
+    <label for="{{ form.release_date.id_for_label }}">Release Date</label>
+    {{ form.release_date }}
+    {% if form.release_date.errors %}
+        <span class="field-error">{{ form.release_date.errors|join:", " }}</span>
+    {% endif %}
+
+    <label for="{{ form.description.id_for_label }}">Description (optional)</label>
+    {{ form.description }}
+    {% if form.description.errors %}
+        <span class="field-error">{{ form.description.errors|join:", " }}</span>
+    {% endif %}
+
+    <br><br>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a href="{% url 'tv_shows_index' %}" class="btn btn-secondary">Go Back</a>
+</form>
+{% endblock %}

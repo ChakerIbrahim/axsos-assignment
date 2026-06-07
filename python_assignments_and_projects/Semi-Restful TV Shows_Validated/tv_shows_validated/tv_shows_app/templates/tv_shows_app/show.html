@@ -1,0 +1,20 @@
+{% extends 'tv_shows_app/base.html' %}
+{% block content %}
+<h1>TV Show {{ show.id }}</h1>
+
+<p><strong>Title:</strong> {{ show.title }}</p>
+<p><strong>Network:</strong> {{ show.network }}</p>
+<p><strong>Release Date:</strong> {{ show.release_date }}</p>
+<p><strong>Description:</strong> {{ show.description|default:"No description provided." }}</p>
+<p><em>Last Updated: {{ show.updated_at }}</em></p>
+
+<a href="{% url 'tv_shows_edit' show.id %}" class="btn btn-primary">Edit</a>
+
+<form action="{% url 'tv_shows_destroy' show.id %}" method="POST" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger" onclick="return confirm('Delete this show?')">Delete</button>
+</form>
+
+<br><br>
+<a href="{% url 'tv_shows_index' %}" class="btn btn-secondary">Go Back</a>
+{% endblock %}
