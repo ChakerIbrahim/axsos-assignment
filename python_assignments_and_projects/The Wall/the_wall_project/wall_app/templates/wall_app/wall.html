@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wall</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #1a1a2e;
+            color: #ccd6f6;
+            min-height: 100vh;
+        }
+
+        /* ── NAV ── */
+        nav {
+            background: #16213e;
+            border-bottom: 1px solid #0f3460;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-brand { color: #e94560; font-size: 1.4rem; font-weight: 700; }
+        .nav-right { display: flex; align-items: center; gap: 16px; font-size: 0.875rem; }
+        .nav-user { color: #8892b0; }
+        .nav-user span { color: #ccd6f6; font-weight: 600; }
+        .btn-logout {
+            padding: 7px 16px;
+            background: transparent;
+            border: 1px solid #e94560;
+            color: #e94560;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-logout:hover { background: #e94560; color: white; }
+
+        /* ── MAIN LAYOUT ── */
+        .container { max-width: 680px; margin: 0 auto; padding: 32px 20px; }
+
+        /* ── FLASH MESSAGES ── */
+        .flash { margin-bottom: 20px; }
+        .flash-msg {
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            margin-bottom: 8px;
+        }
+        .flash-msg.error { background: rgba(233,69,96,0.15); color: #e94560; border: 1px solid rgba(233,69,96,0.3); }
+        .flash-msg.success { background: rgba(46,213,115,0.15); color: #2ed573; border: 1px solid rgba(46,213,115,0.3); }
+
+        /* ── POST FORM ── */
+        .post-form {
+            background: #16213e;
+            border: 1px solid #0f3460;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 32px;
+        }
+        .post-form h2 { color: #ccd6f6; font-size: 1rem; margin-bottom: 12px; font-weight: 600; }
+        .post-form textarea {
+            width: 100%;
+            background: #0f3460;
+            border: 1px solid #1a4a7a;
+            border-radius: 8px;
+            color: #ccd6f6;
+            font-size: 0.95rem;
+            padding: 12px 14px;
+            resize: vertical;
+            min-height: 80px;
+            outline: none;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        .post-form textarea:focus { border-color: #e94560; }
+        .post-form .form-row {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+        .btn-post {
+            padding: 9px 22px;
+            background: #e94560;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-post:hover { background: #c73652; }
+
+        /* ── MESSAGES ── */
+        .messages-list { display: flex; flex-direction: column; gap: 20px; }
+        .message-card {
+            background: #16213e;
+            border: 1px solid #0f3460;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .message-header {
+            padding: 16px 20px 12px;
+            border-bottom: 1px solid #0f3460;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .avatar {
+            width: 38px; height: 38px;
+            background: #e94560;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            color: white;
+        }
+        .message-meta { flex: 1; }
+        .message-author { font-weight: 600; color: #ccd6f6; font-size: 0.95rem; }
+        .message-time { font-size: 0.78rem; color: #8892b0; margin-top: 2px; }
+        .message-content { padding: 14px 20px; color: #a8b2d8; line-height: 1.6; }
+        .delete-btn {
+            padding: 5px 12px;
+            background: transparent;
+            border: 1px solid rgba(233,69,96,0.4);
+            color: #e94560;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .delete-btn:hover { background: rgba(233,69,96,0.15); }
+
+        /* ── COMMENTS ── */
+        .comments-section { border-top: 1px solid #0f3460; }
+        .comment {
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(15,52,96,0.5);
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+        .comment:last-child { border-bottom: none; }
+        .comment-avatar {
+            width: 28px; height: 28px;
+            background: #0f3460;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #8892b0;
+            flex-shrink: 0;
+        }
+        .comment-body { flex: 1; }
+        .comment-author { font-weight: 600; color: #8892b0; font-size: 0.82rem; }
+        .comment-text { color: #a8b2d8; font-size: 0.88rem; line-height: 1.5; margin-top: 2px; }
+        .comment-time { font-size: 0.75rem; color: #4a5568; margin-top: 3px; }
+        .comment-delete {
+            background: none;
+            border: none;
+            color: #4a5568;
+            cursor: pointer;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: color 0.2s;
+            flex-shrink: 0;
+        }
+        .comment-delete:hover { color: #e94560; }
+
+        /* ── COMMENT FORM ── */
+        .comment-form {
+            padding: 14px 20px;
+            border-top: 1px solid #0f3460;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .comment-form input {
+            flex: 1;
+            background: #0f3460;
+            border: 1px solid #1a4a7a;
+            border-radius: 8px;
+            color: #ccd6f6;
+            padding: 9px 14px;
+            font-size: 0.88rem;
+            outline: none;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        .comment-form input:focus { border-color: #e94560; }
+        .comment-form button {
+            padding: 9px 18px;
+            background: #0f3460;
+            border: 1px solid #1a4a7a;
+            color: #8892b0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .comment-form button:hover { background: #e94560; border-color: #e94560; color: white; }
+
+        /* ── EMPTY STATE ── */
+        .empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: #8892b0;
+        }
+        .empty-icon { font-size: 3rem; margin-bottom: 12px; }
+        .empty h3 { color: #ccd6f6; font-size: 1.1rem; margin-bottom: 6px; }
+
+        /* ── SECTION TITLE ── */
+        .section-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #8892b0;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-brand">🧱 The Wall</div>
+    <div class="nav-right">
+        <div class="nav-user">Logged in as <span>{{ request.user.username }}</span></div>
+        <a href="/logout/" class="btn-logout">Sign Out</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    {% if messages %}
+    <div class="flash">
+        {% for message in messages %}
+        <div class="flash-msg {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Post a message -->
+    <div class="post-form">
+        <h2>What's on your mind?</h2>
+        <form method="POST" action="/wall/">
+            {% csrf_token %}
+            <textarea name="content" placeholder="Share something with the world..." maxlength="500"></textarea>
+            <div class="form-row">
+                <button type="submit" class="btn-post">Post to Wall</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Messages feed -->
+    <div class="section-title">{{ all_messages|length }} post{{ all_messages|length|pluralize }}</div>
+
+    {% if all_messages %}
+    <div class="messages-list">
+        {% for msg in all_messages %}
+        <div class="message-card">
+            <div class="message-header">
+                <div class="avatar">{{ msg.user.username|first|upper }}</div>
+                <div class="message-meta">
+                    <div class="message-author">{{ msg.user.username }}</div>
+                    <div class="message-time">{{ msg.created_at|date:"M j, Y" }} at {{ msg.created_at|time:"g:i A" }}</div>
+                </div>
+                {% if msg.user == request.user %}
+                <a href="/wall/delete/message/{{ msg.id }}/" class="delete-btn"
+                   onclick="return confirm('Delete this message?')">Delete</a>
+                {% endif %}
+            </div>
+
+            <div class="message-content">{{ msg.content }}</div>
+
+            <!-- Comments -->
+            {% if msg.comments.all %}
+            <div class="comments-section">
+                {% for comment in msg.comments.all %}
+                <div class="comment">
+                    <div class="comment-avatar">{{ comment.user.username|first|upper }}</div>
+                    <div class="comment-body">
+                        <div class="comment-author">{{ comment.user.username }}</div>
+                        <div class="comment-text">{{ comment.content }}</div>
+                        <div class="comment-time">{{ comment.created_at|date:"M j" }} at {{ comment.created_at|time:"g:i A" }}</div>
+                    </div>
+                    {% if comment.user == request.user %}
+                    <a href="/wall/delete/comment/{{ comment.id }}/"
+                       class="comment-delete"
+                       onclick="return confirm('Delete this comment?')">✕</a>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <!-- Add comment form -->
+            <div class="comment-form">
+                <form method="POST" action="/wall/comment/{{ msg.id }}/" style="display:flex;gap:10px;flex:1">
+                    {% csrf_token %}
+                    <input type="text" name="content" placeholder="Write a comment..." maxlength="300">
+                    <button type="submit">Comment</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% else %}
+    <div class="empty">
+        <div class="empty-icon">🧱</div>
+        <h3>The Wall is empty</h3>
+        <p>Be the first to post something!</p>
+    </div>
+    {% endif %}
+
+</div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div>
+                <h1> Welcome, {{user.first_name}}</h1>
+                <p>User ID:{{user.id}}</p>
+                <form action="/logout/" method="post">
+                    {% csrf_token %}
+                    <button class="btn btn-danger">Log Out</button>
+                </form>
+            </div>
+            <div>
+                <form action="/create_game/" method="post">
+                    {% csrf_token %}
+                    <div>
+                        <label for="game_name">Game Name</label>
+                        <input type="text" name="game_name" class="form-control mb-2">
+                    </div>
+
+                    <div>
+                    <label for="genre">Genre</label>
+                    <select name="genre" class="form-control mb-2">
+                        <option value="Action">Action</option>
+                        <option value="RGP">RGP</option>
+                        <option value="Arcade">Arcade</option>
+                        <option value="Tactical shooter">Tactical Shooter</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Puzzle">Puzzle</option>
+                        <option value="Strategy">Strategy</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="relese_date">Relese Date</label>
+                        <input type="date" name="relese_date" class="form-control mb-2">
+                    </div>
+
+                    <div>
+                        <label for="description">Description</label>
+                        <textarea name="description" class="form-control mb-2"></textarea>
+                    </div>
+                    <button class="btn btn-primary">Create a Game</button>
+                </form>
+            </div>
+            <div>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <div>
+                    <table class="table table-success table-striped mt-4">
+                        <tr>
+                            <th>Game</th>
+                            <th>Genre</th>
+                            <th>Relese Date</th>
+                        </tr>
+                        {% for game in all_games %}
+                        <tr>
+                            <td><a href="/game/{{game.id}}/">{{game.game_name}}</a></td>
+                            <td>{{game.genre}}</td>
+                            <td>{{game.relese_date}}</td>
+                        </tr>
+                        {% endfor %}
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3>Welcome {{ user.first_name }} {{ user.last_name }}</h3>
+        <a class="btn btn-outline-danger" href="/logout">Logout</a>
+    </div>
+
+    {% for msg in messages %}
+        <div class="alert alert-danger">{{ msg }}</div>
+    {% endfor %}
+
+    <h4>Create a Game</h4>
+
+    <form action="/create_game" method="post" class="p-3 border bg-white rounded mb-4">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label>Game Name</label>
+                <input name="name" class="form-control">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label>Genre</label>
+                <select name="genre" class="form-control">
+                    <option>Action</option>
+                    <option>RPG</option>
+                    <option>Strategy</option>
+                    <option>Adventure</option>
+                    <option>Arcade</option>
+                    <option>Shooter</option>
+                </select>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label>Release Date</label>
+                <input type="date" name="release_date" class="form-control">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>Description</label>
+            <textarea name="description" class="form-control" rows="2"></textarea>
+        </div>
+
+        <button class="btn btn-primary">Create Game</button>
+    </form>
+
+    <h4>Games</h4>
+
+    <table class="table table-striped table-bordered bg-white">
+        <thead>
+        <tr>
+            <th><a href="?sort=name">Game</a></th>
+            <th><a href="?sort=genre">Genre</a></th>
+            <th><a href="?sort=release_date">Release Date</a></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for g in games %}
+            <tr>
+                <td><a href="/game/{{ g.id }}">{{ g.name }}</a></td>
+                <td>{{ g.genre }}</td>
+                <td>{{ g.release_date|date:"d M Y" }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html> -->

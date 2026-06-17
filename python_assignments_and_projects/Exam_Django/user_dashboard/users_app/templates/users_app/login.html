@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Registration</title>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'Segoe UI',sans-serif;background:#f0f2f5;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+        .card{background:#fff;border-radius:14px;padding:40px;width:100%;max-width:420px;box-shadow:0 4px 24px rgba(0,0,0,.1)}
+        h1{color:#1e3a5f;font-size:1.7rem;margin-bottom:4px}
+        .sub{color:#64748b;font-size:.9rem;margin-bottom:28px}
+        .flash{margin-bottom:16px}
+        .flash-msg{padding:10px 14px;border-radius:8px;font-size:.85rem;margin-bottom:6px}
+        .error{background:#fee2e2;color:#dc2626;border-left:4px solid #dc2626}
+        .success{background:#dcfce7;color:#16a34a;border-left:4px solid #16a34a}
+        .field{margin-bottom:18px}
+        label{display:block;color:#374151;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+        input{width:100%;padding:11px 14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;color:#1a1a2e;font-size:.95rem;outline:none;transition:border-color .2s;font-family:inherit}
+        input:focus{border-color:#3b82f6;background:#fff}
+        button{width:100%;padding:12px;background:#1e3a5f;color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s}
+        button:hover{background:#2563eb}
+        .footer{text-align:center;margin-top:18px;color:#64748b;font-size:.875rem}
+        .footer a{color:#3b82f6;text-decoration:none;font-weight:600}
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>👥 Welcome Back</h1>
+    <p class="sub">Sign in to your account</p>
+
+    {% if messages %}
+    <div class="flash">
+        {% for m in messages %}
+        <div class="flash-msg {% if m.tags == 'error' %}error{% else %}success{% endif %}">{{ m }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <form method="POST" action="/login/">
+        {% csrf_token %}
+        <div class="field">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Your password" required>
+        </div>
+        <button type="submit">Sign In</button>
+    </form>
+    <div class="footer">Don't have an account? <a href="/register/">Register</a></div>
+</div>
+</body>
+</html>

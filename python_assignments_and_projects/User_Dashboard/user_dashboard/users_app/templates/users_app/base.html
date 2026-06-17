@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}User Dashboard{% endblock %}</title>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f0f2f5;color:#1a1a2e;min-height:100vh}
+        nav{background:#1e3a5f;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 8px rgba(0,0,0,.2);position:sticky;top:0;z-index:100}
+        .brand{color:#fff;font-size:1.2rem;font-weight:700;text-decoration:none;letter-spacing:.02em}
+        .brand span{color:#60a5fa}
+        .nav-r{display:flex;align-items:center;gap:14px;font-size:.875rem}
+        .nav-r span{color:#93c5fd}
+        a.nav-link{color:#e2e8f0;text-decoration:none;padding:6px 14px;border-radius:6px;transition:background .2s}
+        a.nav-link:hover{background:rgba(255,255,255,.1)}
+        a.nav-btn{padding:7px 16px;background:#3b82f6;color:#fff;border-radius:7px;text-decoration:none;font-weight:600;font-size:.85rem;transition:background .2s}
+        a.nav-btn:hover{background:#2563eb}
+        .container{max-width:900px;margin:0 auto;padding:32px 20px}
+        .flash{margin-bottom:20px}
+        .flash-msg{padding:11px 16px;border-radius:8px;font-size:.875rem;margin-bottom:8px;font-weight:500}
+        .error{background:#fee2e2;color:#dc2626;border-left:4px solid #dc2626}
+        .success{background:#dcfce7;color:#16a34a;border-left:4px solid #16a34a}
+        {% block extra_style %}{% endblock %}
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/users/" class="brand">👥 User<span>Dashboard</span></a>
+    <div class="nav-r">
+        {% if current_user %}
+        <span>{{ current_user.full_name }}</span>
+        <a href="/users/{{ current_user.id }}/" class="nav-link">My Profile</a>
+        <a href="/users/new/" class="nav-link">+ New User</a>
+        <a href="/logout/" class="nav-link">Logout</a>
+        {% else %}
+        <a href="/login/" class="nav-link">Login</a>
+        <a href="/register/" class="nav-btn">Register</a>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="container">
+    {% if messages %}
+    <div class="flash">
+        {% for m in messages %}
+        <div class="flash-msg {% if m.tags == 'error' %}error{% else %}success{% endif %}">{{ m }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

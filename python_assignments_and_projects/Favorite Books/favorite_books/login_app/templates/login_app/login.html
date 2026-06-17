@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Favorite Books</title>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'Segoe UI',sans-serif;background:#0f0e17;min-height:100vh;display:flex;align-items:center;justify-content:center}
+        .card{background:#1a1825;border:1px solid #2d2b3d;border-radius:14px;padding:40px;width:100%;max-width:420px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+        h1{color:#ff8906;font-size:1.8rem;margin-bottom:4px}
+        .sub{color:#a7a9be;font-size:.9rem;margin-bottom:28px}
+        .msgs{margin-bottom:16px}
+        .msg{padding:10px 14px;border-radius:8px;font-size:.875rem;margin-bottom:6px}
+        .error{background:rgba(255,75,75,.12);color:#ff4b4b;border:1px solid rgba(255,75,75,.3)}
+        label{display:block;color:#a7a9be;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+        input{width:100%;padding:11px 14px;background:#0f0e17;border:1px solid #2d2b3d;border-radius:8px;color:#fffffe;font-size:.95rem;outline:none;transition:border-color .2s;margin-bottom:16px}
+        input:focus{border-color:#ff8906}
+        button{width:100%;padding:12px;background:#ff8906;color:#0f0e17;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:opacity .2s}
+        button:hover{opacity:.85}
+        .footer{text-align:center;margin-top:20px;color:#a7a9be;font-size:.875rem}
+        .footer a{color:#ff8906;text-decoration:none}
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>📚 Favorite Books</h1>
+    <p class="sub">Sign in to your account</p>
+    {% if messages %}
+    <div class="msgs">{% for m in messages %}<div class="msg error">{{ m }}</div>{% endfor %}</div>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Your username" required>
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Your password" required>
+        <button type="submit">Sign In</button>
+    </form>
+    <div class="footer">No account? <a href="/register/">Register here</a></div>
+</div>
+</body>
+</html>

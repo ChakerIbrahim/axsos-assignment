@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register — The Wall</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #1a1a2e;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card {
+            background: #16213e;
+            border: 1px solid #0f3460;
+            border-radius: 12px;
+            padding: 40px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        h1 { color: #e94560; font-size: 2rem; margin-bottom: 8px; }
+        p.subtitle { color: #8892b0; margin-bottom: 28px; font-size: 0.9rem; }
+        .messages { margin-bottom: 16px; }
+        .msg { padding: 10px 14px; border-radius: 6px; font-size: 0.875rem; margin-bottom: 8px; }
+        .msg.error { background: rgba(233,69,96,0.15); color: #e94560; border: 1px solid rgba(233,69,96,0.3); }
+        .msg.success { background: rgba(46,213,115,0.15); color: #2ed573; border: 1px solid rgba(46,213,115,0.3); }
+        label { display: block; color: #8892b0; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+        input {
+            width: 100%; padding: 12px 16px;
+            background: #0f3460; border: 1px solid #1a4a7a;
+            border-radius: 8px; color: #ccd6f6; font-size: 0.95rem;
+            outline: none; transition: border-color 0.2s;
+            margin-bottom: 18px;
+        }
+        input:focus { border-color: #e94560; }
+        button {
+            width: 100%; padding: 13px;
+            background: #e94560; color: white;
+            border: none; border-radius: 8px;
+            font-size: 1rem; font-weight: 600;
+            cursor: pointer; transition: background 0.2s;
+        }
+        button:hover { background: #c73652; }
+        .footer { text-align: center; margin-top: 20px; color: #8892b0; font-size: 0.875rem; }
+        .footer a { color: #e94560; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Join The Wall</h1>
+    <p class="subtitle">Create your account to get started</p>
+
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="msg {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <form method="POST" action="/register/">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Choose a username" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="At least 6 characters" required>
+
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Repeat your password" required>
+
+        <button type="submit">Create Account</button>
+    </form>
+
+    <div class="footer">
+        Already have an account? <a href="/login/">Sign in</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% extends 'users_app/base.html' %}
+{% block title %}{{ profile.full_name }} — User Dashboard{% endblock %}
+
+{% block extra_style %}
+.profile-card{background:#fff;border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,.08);padding:36px;display:flex;gap:28px;align-items:flex-start;margin-bottom:24px}
+.avatar-lg{width:80px;height:80px;background:#1e3a5f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2rem;font-weight:700;flex-shrink:0}
+.profile-info h1{font-size:1.6rem;color:#1e3a5f;margin-bottom:4px}
+.profile-info .email{color:#64748b;font-size:.95rem;margin-bottom:16px}
+.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.meta-item label{display:block;font-size:.75rem;font-weight:600;text-transform:uppercase;color:#94a3b8;letter-spacing:.06em;margin-bottom:3px}
+.meta-item span{font-size:.9rem;color:#374151;font-weight:500}
+.actions-bar{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+a.btn,button.btn{padding:9px 20px;border-radius:8px;text-decoration:none;font-size:.875rem;font-weight:600;cursor:pointer;transition:all .2s;border:none;display:inline-block}
+.btn-primary{background:#1e3a5f;color:#fff}
+.btn-primary:hover{background:#2563eb}
+.btn-warning{background:#fef3c7;color:#92400e;border:1px solid #fde68a}
+.btn-warning:hover{background:#f59e0b;color:#fff}
+.btn-danger{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+.btn-danger:hover{background:#dc2626;color:#fff}
+.btn-secondary{background:#f1f5f9;color:#475569;border:1px solid #e2e8f0}
+.btn-secondary:hover{background:#e2e8f0}
+.you-tag{display:inline-block;background:#dcfce7;color:#16a34a;border-radius:12px;padding:3px 10px;font-size:.78rem;font-weight:700;margin-left:8px;vertical-align:middle}
+{% endblock %}
+
+{% block content %}
+<div class="profile-card">
+    <div class="avatar-lg">{{ profile.first_name|first|upper }}</div>
+    <div class="profile-info" style="flex:1">
+        <h1>
+            {{ profile.full_name }}
+            {% if profile.id == current_user.id %}<span class="you-tag">You</span>{% endif %}
+        </h1>
+        <div class="email">{{ profile.email }}</div>
+
+        <div class="meta-grid">
+            <div class="meta-item">
+                <label>First Name</label>
+                <span>{{ profile.first_name }}</span>
+            </div>
+            <div class="meta-item">
+                <label>Last Name</label>
+                <span>{{ profile.last_name }}</span>
+            </div>
+            <div class="meta-item">
+                <label>Member Since</label>
+                <span>{{ profile.created_at|date:"F j, Y" }}</span>
+            </div>
+            <div class="meta-item">
+                <label>Last Updated</label>
+                <span>{{ profile.updated_at|date:"F j, Y" }}</span>
+            </div>
+        </div>
+
+        <div class="actions-bar">
+            <a href="/users/{{ profile.id }}/edit/" class="btn btn-warning">✏️ Edit Profile</a>
+            <a href="/users/{{ profile.id }}/delete/" class="btn btn-danger"
+               onclick="return confirm('Delete {{ profile.full_name }}? This cannot be undone.')">🗑 Delete</a>
+            <a href="/users/" class="btn btn-secondary">← Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book.title }} — Favorite Books</title>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'Segoe UI',sans-serif;background:#0f0e17;color:#fffffe;min-height:100vh}
+        nav{background:#1a1825;border-bottom:1px solid #2d2b3d;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0}
+        .brand{color:#ff8906;font-size:1.3rem;font-weight:700;text-decoration:none}
+        nav a.back{color:#a7a9be;text-decoration:none;font-size:.875rem}
+        nav a.back:hover{color:#ff8906}
+        .container{max-width:680px;margin:0 auto;padding:32px 20px}
+        .flash{margin-bottom:20px}
+        .flash-msg{padding:10px 16px;border-radius:8px;font-size:.875rem;margin-bottom:8px}
+        .error{background:rgba(255,75,75,.12);color:#ff4b4b;border:1px solid rgba(255,75,75,.3)}
+        .success{background:rgba(46,213,115,.12);color:#2ed573;border:1px solid rgba(46,213,115,.3)}
+        .book-hero{background:#1a1825;border:1px solid #2d2b3d;border-radius:14px;padding:28px;margin-bottom:24px}
+        .book-hero h1{font-size:1.6rem;color:#fffffe;margin-bottom:6px}
+        .meta{color:#a7a9be;font-size:.875rem;margin-bottom:20px}
+        .meta strong{color:#ff8906}
+        .actions{display:flex;gap:10px;flex-wrap:wrap}
+        a.btn,button.btn{padding:9px 20px;border-radius:8px;text-decoration:none;font-size:.875rem;font-weight:600;cursor:pointer;transition:opacity .2s;display:inline-block}
+        a.btn:hover,button.btn:hover{opacity:.8}
+        .btn-primary{background:#ff8906;color:#0f0e17;border:none}
+        .btn-danger{background:rgba(255,75,75,.15);color:#ff4b4b;border:1px solid rgba(255,75,75,.4)}
+        .btn-secondary{background:transparent;border:1px solid #2d2b3d;color:#a7a9be}
+        .btn-unfav{background:rgba(255,137,6,.1);border:1px solid rgba(255,137,6,.4);color:#ff8906}
+        .section{background:#1a1825;border:1px solid #2d2b3d;border-radius:12px;padding:22px}
+        .section h2{font-size:1rem;color:#fffffe;margin-bottom:16px}
+        .user-list{display:flex;flex-direction:column;gap:10px}
+        .user-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(45,43,61,.6)}
+        .user-row:last-child{border-bottom:none}
+        .avatar{width:36px;height:36px;background:#ff8906;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0f0e17;flex-shrink:0}
+        .user-info .name{font-weight:600;font-size:.9rem}
+        .user-info .sub{color:#a7a9be;font-size:.8rem}
+        .empty-fans{color:#a7a9be;font-size:.9rem;padding:10px 0}
+    </style>
+</head>
+<body>
+<nav>
+    <a href="/books/" class="brand">📚 Favorite Books</a>
+    <a href="/books/" class="back">← Back to All Books</a>
+</nav>
+
+<div class="container">
+    {% if messages %}
+    <div class="flash">
+        {% for m in messages %}
+        <div class="flash-msg {% if m.tags == 'error' %}error{% else %}success{% endif %}">{{ m }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="book-hero">
+        <h1>{{ book.title }}</h1>
+        <p class="meta">
+            Uploaded by <strong>{{ book.uploaded_by.get_full_name|default:book.uploaded_by.username }}</strong>
+            &nbsp;·&nbsp; ❤️ {{ book.users_who_like.count }} fan{{ book.users_who_like.count|pluralize }}
+        </p>
+        <div class="actions">
+            {% if user_likes %}
+                <a href="/books/{{ book.id }}/unfavorite/" class="btn btn-unfav">★ Remove from Favorites</a>
+            {% else %}
+                <a href="/books/{{ book.id }}/favorite/" class="btn btn-primary">☆ Add to Favorites</a>
+            {% endif %}
+
+            {% if book.uploaded_by == request.user %}
+                <a href="/books/{{ book.id }}/edit/" class="btn btn-secondary">✏️ Edit</a>
+                <a href="/books/{{ book.id }}/delete/" class="btn btn-danger"
+                   onclick="return confirm('Delete this book?')">🗑 Delete</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>❤️ Users Who Favorited This Book</h2>
+        {% if favorited_by %}
+        <div class="user-list">
+            {% for u in favorited_by %}
+            <div class="user-row">
+                <div class="avatar">{{ u.username|first|upper }}</div>
+                <div class="user-info">
+                    <div class="name">{{ u.get_full_name|default:u.username }}</div>
+                    <div class="sub">@{{ u.username }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="empty-fans">No one has favorited this book yet.</p>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>

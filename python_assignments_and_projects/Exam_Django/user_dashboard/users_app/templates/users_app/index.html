@@ -1,0 +1,81 @@
+{% extends 'users_app/base.html' %}
+{% block title %}Dashboard — All Users{% endblock %}
+
+{% block extra_style %}
+.page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.page-header h1{font-size:1.5rem;color:#1e3a5f}
+.page-header .count{color:#64748b;font-size:.9rem;margin-top:3px}
+a.btn-new{padding:10px 22px;background:#1e3a5f;color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:.875rem;transition:background .2s}
+a.btn-new:hover{background:#2563eb}
+.table-wrap{background:#fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.08);overflow:hidden}
+table{width:100%;border-collapse:collapse}
+thead{background:#1e3a5f}
+thead th{padding:13px 18px;text-align:left;color:#e2e8f0;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em}
+tbody tr{border-bottom:1px solid #f1f5f9;transition:background .15s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:#f8fafc}
+td{padding:14px 18px;font-size:.9rem;color:#374151}
+td.name{font-weight:600;color:#1e3a5f}
+.avatar{width:34px;height:34px;background:#3b82f6;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.85rem;margin-right:10px;vertical-align:middle}
+.actions{display:flex;gap:8px}
+a.act{padding:5px 12px;border-radius:6px;text-decoration:none;font-size:.8rem;font-weight:600;transition:all .2s}
+.act-view{background:#eff6ff;color:#3b82f6;border:1px solid #bfdbfe}
+.act-view:hover{background:#3b82f6;color:#fff}
+.act-edit{background:#fefce8;color:#ca8a04;border:1px solid #fde68a}
+.act-edit:hover{background:#ca8a04;color:#fff}
+.act-del{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+.act-del:hover{background:#dc2626;color:#fff}
+.you-badge{background:#dcfce7;color:#16a34a;border:1px solid #bbf7d0;padding:3px 8px;border-radius:12px;font-size:.72rem;font-weight:700;margin-left:6px}
+.empty{text-align:center;padding:48px;color:#94a3b8}
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <h1>All Games</h1>
+        <div class="count">{{ all_users|length }} registered user{{ all_users|length|pluralize }}</div>
+    </div>
+    <a href="/users/new/" class="btn-new">+ Add New User</a>
+</div>
+
+<div class="table-wrap">
+    {% if all_users %}
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Game</th>
+                <th>Genre</th>
+                <th>Release Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in all_users %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td class="name">
+                    <span class="avatar">{{ u.first_name|first|upper }}</span>
+                    {{ u.full_name }}
+                    {% if u.id == current_user.id %}
+                    <span class="you-badge">You</span>
+                    {% endif %}
+                </td>
+                <td>{{ u.email }}</td>
+                <td>{{ u.created_at|date:"M j, Y" }}</td>
+                <td>
+                    <div class="actions">
+                        <a href="/users/{{ u.id }}/" class="act act-view">View</a>
+                        <a href="/users/{{ u.id }}/edit/" class="act act-edit">Edit</a>
+                        <a href="/users/{{ u.id }}/delete/" class="act act-del"
+                           onclick="return confirm('Delete {{ u.full_name }}?')">Delete</a>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="empty">No users found. <a href="/users/new/">Add one!</a></div>
+    {% endif %}
+</div>
+{% endblock %}

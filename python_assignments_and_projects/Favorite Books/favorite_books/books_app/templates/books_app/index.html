@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Books</title>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'Segoe UI',sans-serif;background:#0f0e17;color:#fffffe;min-height:100vh}
+        nav{background:#1a1825;border-bottom:1px solid #2d2b3d;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+        .brand{color:#ff8906;font-size:1.3rem;font-weight:700}
+        .nav-r{display:flex;align-items:center;gap:14px;font-size:.875rem}
+        .nav-r span{color:#a7a9be}
+        .nav-r strong{color:#fffffe}
+        a.btn{padding:7px 16px;border-radius:7px;text-decoration:none;font-size:.85rem;font-weight:600;transition:opacity .2s}
+        a.btn:hover{opacity:.8}
+        .btn-outline{border:1px solid #ff8906;color:#ff8906}
+        .btn-ghost{border:1px solid #2d2b3d;color:#a7a9be}
+        .container{max-width:720px;margin:0 auto;padding:32px 20px}
+        .flash{margin-bottom:20px}
+        .flash-msg{padding:10px 16px;border-radius:8px;font-size:.875rem;margin-bottom:8px}
+        .error{background:rgba(255,75,75,.12);color:#ff4b4b;border:1px solid rgba(255,75,75,.3)}
+        .success{background:rgba(46,213,115,.12);color:#2ed573;border:1px solid rgba(46,213,115,.3)}
+        .add-form{background:#1a1825;border:1px solid #2d2b3d;border-radius:12px;padding:22px;margin-bottom:32px}
+        .add-form h2{color:#fffffe;font-size:1rem;margin-bottom:12px}
+        .form-row{display:flex;gap:10px}
+        .form-row input{flex:1;padding:10px 14px;background:#0f0e17;border:1px solid #2d2b3d;border-radius:8px;color:#fffffe;font-size:.95rem;outline:none;font-family:inherit;transition:border-color .2s}
+        .form-row input:focus{border-color:#ff8906}
+        .form-row button{padding:10px 22px;background:#ff8906;color:#0f0e17;border:none;border-radius:8px;font-weight:700;cursor:pointer;transition:opacity .2s;white-space:nowrap}
+        .form-row button:hover{opacity:.85}
+        .section-label{font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#a7a9be;margin-bottom:14px}
+        .book-list{display:flex;flex-direction:column;gap:12px}
+        .book-card{background:#1a1825;border:1px solid #2d2b3d;border-radius:10px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;transition:border-color .2s}
+        .book-card:hover{border-color:#ff8906}
+        .book-left{display:flex;align-items:center;gap:14px}
+        .book-icon{width:40px;height:40px;background:#ff8906;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+        .book-title a{color:#fffffe;text-decoration:none;font-weight:600;font-size:.95rem}
+        .book-title a:hover{color:#ff8906}
+        .book-uploader{color:#a7a9be;font-size:.8rem;margin-top:3px}
+        .book-right{display:flex;align-items:center;gap:10px}
+        .likes-badge{background:#0f0e17;border:1px solid #2d2b3d;border-radius:20px;padding:4px 12px;font-size:.8rem;color:#a7a9be}
+        .ninja-link{font-size:.8rem;color:#ff8906;text-decoration:none;padding:5px 12px;border:1px solid rgba(255,137,6,.4);border-radius:6px;transition:all .2s}
+        .ninja-link:hover{background:rgba(255,137,6,.1)}
+        .already-fav{font-size:.8rem;color:#a7a9be;padding:5px 10px}
+        .empty{text-align:center;padding:60px 20px;color:#a7a9be}
+        .empty-icon{font-size:3rem;margin-bottom:10px}
+    </style>
+</head>
+<body>
+<nav>
+    <div class="brand">📚 Favorite Books</div>
+    <div class="nav-r">
+        <span>Hello, <strong>{{ request.user.first_name|default:request.user.username }}</strong></span>
+        <a href="/books/my-favorites/" class="btn btn-outline">My Favorites</a>
+        <a href="/logout/" class="btn btn-ghost">Sign Out</a>
+    </div>
+</nav>
+
+<div class="container">
+    {% if messages %}
+    <div class="flash">
+        {% for m in messages %}
+        <div class="flash-msg {% if m.tags == 'error' %}error{% else %}success{% endif %}">{{ m }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="add-form">
+        <h2>➕ Add a New Book</h2>
+        <form method="POST" action="/books/">
+            {% csrf_token %}
+            <div class="form-row">
+                <input type="text" name="title" placeholder="Enter book title..." maxlength="255" required>
+                <button type="submit">Add Book</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="section-label">{{ all_books|length }} book{{ all_books|length|pluralize }} on the shelf</div>
+
+    {% if all_books %}
+    <div class="book-list">
+        {% for book in all_books %}
+        <div class="book-card">
+            <div class="book-left">
+                <div class="book-icon">📖</div>
+                <div class="book-title">
+                    <a href="/books/{{ book.id }}/">{{ book.title }}</a>
+                    <div class="book-uploader">Uploaded by {{ book.uploaded_by.username }}</div>
+                </div>
+            </div>
+            <div class="book-right">
+                <span class="likes-badge">❤️ {{ book.users_who_like.count }}</span>
+                {% if request.user in book.users_who_like.all %}
+                    <span class="already-fav">✓ Favorited</span>
+                {% else %}
+                    <a href="/books/{{ book.id }}/favorite/" class="ninja-link">+ Favorite</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty">
+        <div class="empty-icon">📭</div>
+        <p>No books yet. Be the first to add one!</p>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>

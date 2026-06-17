@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book — Favorite Books</title>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'Segoe UI',sans-serif;background:#0f0e17;color:#fffffe;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+        .card{background:#1a1825;border:1px solid #2d2b3d;border-radius:14px;padding:36px;width:100%;max-width:440px}
+        h1{color:#ff8906;font-size:1.5rem;margin-bottom:20px}
+        label{display:block;color:#a7a9be;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+        input{width:100%;padding:12px 14px;background:#0f0e17;border:1px solid #2d2b3d;border-radius:8px;color:#fffffe;font-size:.95rem;outline:none;margin-bottom:20px;font-family:inherit;transition:border-color .2s}
+        input:focus{border-color:#ff8906}
+        .btns{display:flex;gap:10px}
+        button{flex:1;padding:11px;background:#ff8906;color:#0f0e17;border:none;border-radius:8px;font-weight:700;cursor:pointer;transition:opacity .2s}
+        button:hover{opacity:.85}
+        a.cancel{flex:1;padding:11px;background:transparent;border:1px solid #2d2b3d;color:#a7a9be;border-radius:8px;text-align:center;text-decoration:none;font-size:.95rem;transition:border-color .2s}
+        a.cancel:hover{border-color:#ff8906;color:#ff8906}
+        .flash-msg{padding:10px 14px;border-radius:8px;font-size:.875rem;margin-bottom:14px}
+        .error{background:rgba(255,75,75,.12);color:#ff4b4b;border:1px solid rgba(255,75,75,.3)}
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>✏️ Edit Book</h1>
+    {% if messages %}
+        {% for m in messages %}
+        <div class="flash-msg error">{{ m }}</div>
+        {% endfor %}
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <label>Book Title</label>
+        <input type="text" name="title" value="{{ book.title }}" required maxlength="255">
+        <div class="btns">
+            <button type="submit">Save Changes</button>
+            <a href="/books/{{ book.id }}/" class="cancel">Cancel</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

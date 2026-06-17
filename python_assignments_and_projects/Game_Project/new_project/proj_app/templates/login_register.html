@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row g-4">
+            <!-- Registration -->
+            <div class="col-md-6">
+                <div class="card p-4 shadow-sm">
+                    <h2 class="mb-3">Registration</h2>
+                    <form action="/register/" method="post">
+                        {% csrf_token %}
+                        <div class="mb-2">
+                            <label>First Name:</label>
+                            <input type="text" name="first_name" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="mb-2">
+                            <label>Last Name:</label>
+                            <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+                        </div>
+                        <div class="mb-2">
+                            <label>Email:</label>
+                            <input type="email" name="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="mb-2">
+                            <label>Date Of Birth:</label>
+                            <input type="date" name="birthday" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label>Password:</label>
+                            <input type="password" name="password" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="mb-2">
+                            <label>Confirm Password:</label>
+                            <input type="password" name="confirm_pw" class="form-control" placeholder="Confirm Password">
+                        </div>
+                        <div class="mb-3">
+                            <label>Upload Avatar:</label>
+                            <input type="text" name="avatar" class="form-control" placeholder="https://png.pngtree...">
+                        </div>
+                        <button class="btn btn-primary">Create Account</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Login -->
+            <div class="col-md-6">
+                <div class="card p-4 shadow-sm">
+                    <h2 class="mb-3">Login</h2>
+                    <form action="/login/" method="post">
+                        {% csrf_token %}
+                        <div class="mb-2">
+                            <label>Email:</label>
+                            <input type="email" name="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <label>Password:</label>
+                            <input type="password" name="password" class="form-control" placeholder="Password">
+                        </div>
+                        <button class="btn btn-success">Sign In</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Error messages -->
+            {% if messages %}
+            <div class="col-12">
+                <ul class="list-unstyled">
+                    {% for message in messages %}
+                    <li class="alert alert-danger py-1">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Welcome {{ user.first_name }} {{ user.last_name }}</h1>
+            <form action="/logout/" method="post">
+                {% csrf_token %}
+                <button class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+
+        <div class="row">
+            <!-- Create Game Form -->
+            <div class="col-md-4">
+                <div class="card p-3 shadow-sm mb-4">
+                    <h4>Create a Game</h4>
+                    <form action="/create_game/" method="post">
+                        {% csrf_token %}
+                        <div class="mb-2">
+                            <label>Game name</label>
+                            <input type="text" name="game_name" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label>Genre</label>
+                            <select name="genre" class="form-control">
+                                <option value="Action">Action</option>
+                                <option value="RPG">RPG</option>
+                                <option value="Arcade">Arcade</option>
+                                <option value="Tactical shooter">Tactical Shooter</option>
+                                <option value="Adventure">Adventure</option>
+                                <option value="Puzzle">Puzzle</option>
+                                <option value="Strategy">Strategy</option>
+                            </select>
+                        </div>
+                        <div class="mb-2">
+                            <label>Release Date</label>
+                            <input type="date" name="relese_date" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label>Description</label>
+                            <textarea name="description" class="form-control"></textarea>
+                        </div>
+                        <button class="btn btn-primary w-100">Create a Game</button>
+                    </form>
+
+                    <!-- Validation errors -->
+                    {% if messages %}
+                    <ul class="list-unstyled mt-3">
+                        {% for message in messages %}
+                        <li class="alert alert-danger py-1">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Games Table -->
+            <div class="col-md-8">
+                <table class="table table-success table-striped">
+                    <thead>
+                        <tr>
+                            <th>Game</th>
+                            <th>Genre</th>
+                            <th>Release Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for game in all_games %}
+                        <tr>
+                            <td><a href="/game/{{ game.id }}/">{{ game.game_name }}</a></td>
+                            <td>{{ game.genre }}</td>
+                            <td>{{ game.relese_date }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
