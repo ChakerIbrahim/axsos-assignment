@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Edit {{ game.name }}{% endblock %}
+
+{% block content %}
+<div class="panel-bar">Edit Game</div>
+<div class="card">
+    <h1>Welcome {{ request.user.first_name }} {{ request.user.last_name }}</h1>
+
+    <form method="post" class="show-form">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <label>Game name</label>
+        {{ form.name }}
+        {{ form.name.errors }}
+
+        <label>Genre</label>
+        {{ form.genre }}
+        {{ form.genre.errors }}
+
+        <label>Release Date</label>
+        {{ form.release_date }}
+        {{ form.release_date.errors }}
+
+        <label>Description</label>
+        {{ form.description }}
+        {{ form.description.errors }}
+
+        <div class="actions-row">
+            <button type="submit" class="btn btn-primary">Apply</button>
+            <a href="{% url 'game_detail' game.id %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

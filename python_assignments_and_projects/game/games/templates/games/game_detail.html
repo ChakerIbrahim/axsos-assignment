@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}{{ game.name }}{% endblock %}
+
+{% block content %}
+<div class="panel-bar">Game Info</div>
+<div class="card purple-card">
+    <div class="page-head">
+        <h1>Welcome {{ request.user.first_name }} {{ request.user.last_name }}</h1>
+        <a href="{% url 'logout' %}" class="link-light">Logout</a>
+    </div>
+
+    <div class="two-col">
+        <div>
+            <p><strong>Game name:</strong> {{ game.name }}</p>
+            <p><strong>Genre:</strong> {{ game.get_genre_display }}</p>
+            <p><strong>Description:</strong> {{ game.description }}</p>
+            <p><strong>created By:</strong> {{ game.created_by.first_name }} {{ game.created_by.last_name }}</p>
+
+            {% if is_creator %}
+            <div class="actions-row">
+                <a href="{% url 'game_edit' game.id %}" class="btn btn-secondary">Edit</a>
+                <form action="{% url 'game_delete' game.id %}" method="post"
+                      onsubmit="return confirm('Delete {{ game.name }}?');">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+
+        <div>
+            <h3>The players who like this game most</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th><a href="?sort=id" class="sort-link">ID</a></th>
+                        <th><a href="?sort=player" class="sort-link">Player name</a></th>
+                        <th><a href="?sort=rate" class="sort-link">Rate</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rating in ratings %}
+                    <tr>
+                        <td>{{ rating.id }}</td>
+                        <td><a href="{% url 'profile' rating.player.id %}">{{ rating.player.first_name }} {{ rating.player.last_name }}</a></td>
+                        <td>{{ rating.rate }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="3">No ratings yet.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="actions-row">
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="add_fav" class="btn btn-primary">Add To Fav</button>
+                </form>
+
+                <form method="post" class="inline-form">
+                    {% csrf_token %}
+                    <select name="rate">
+                        {% for n in "12345" %}
+                        <option value="{{ n }}" {% if my_rating.rate|stringformat:"s" == n %}selected{% endif %}>{{ n }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" name="set_rate" class="btn btn-secondary">Rate</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

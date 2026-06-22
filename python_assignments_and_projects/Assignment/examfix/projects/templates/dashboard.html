@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+
+    <p>
+        Welcome, {{ request.user.first_name }}
+        | <a href="{% url 'logout' %}">Logout</a>
+        | <a href="{% url 'create_project' %}">Create Project</a>
+    </p>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <table border="1" cellpadding="6">
+        <tr>
+            <th>ID</th>
+            <th>Project name</th>
+            <th>Project owner</th>
+            <th>Action</th>
+        </tr>
+        {% for project in projects %}
+        <tr>
+            <td>{{ project.id }}</td>
+
+            <td>
+                <a href="{% url 'project_details' project.id %}">
+                    {{ project.name }}
+                </a>
+            </td>
+
+            <td>
+                {{ project.owner.first_name }}
+                {{ project.owner.last_name }}
+            </td>
+
+            <td>
+                {% if project.owner == request.user %}
+                    <a href="{% url 'delete_project' project.id %}">Delete</a>
+                {% elif request.user in project.members.all %}
+                    <a href="{% url 'leave_project' project.id %}">Separate</a>
+                {% else %}
+                    <a href="{% url 'join_project' project.id %}">Join</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4">No projects yet.</td></tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

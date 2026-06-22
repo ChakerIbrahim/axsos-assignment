@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Project</title>
+</head>
+<body>
+    <p>
+        Welcome, {{ request.user.first_name }}
+        | <a href="{% url 'logout' %}">Logout</a>
+    </p>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <h1>Create Project</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Project name</label><br>
+        <input type="text" name="name" value="{{ form_data.name }}"><br>
+
+        <label>Description</label><br>
+        <textarea name="description">{{ form_data.description }}</textarea><br>
+
+        <label>Start date</label><br>
+        <input type="date" name="start_date" value="{{ form_data.start_date }}"><br>
+
+        <label>End date</label><br>
+        <input type="date" name="end_date" value="{{ form_data.end_date }}"><br>
+
+        <button type="submit">Create</button>
+
+        <a href="{% url 'dashboard' %}">Back</a>
+    </form>
+
+</body>
+</html>

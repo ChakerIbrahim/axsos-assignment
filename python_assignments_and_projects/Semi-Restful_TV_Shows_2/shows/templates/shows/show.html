@@ -1,0 +1,30 @@
+{% extends 'shows/base.html' %}
+{% block title %}{{ show.title }}{% endblock %}
+
+{% block content %}
+    <a href="{% url 'index' %}" class="go-back">&laquo; Go Back</a>
+    <h1>{{ show.title }}</h1>
+
+    <dl class="show-details">
+        <dt>Network</dt>
+        <dd>{{ show.network }}</dd>
+
+        <dt>Release Date</dt>
+        <dd>{{ show.release_date }}</dd>
+
+        <dt>Description</dt>
+        <dd>{{ show.description|default:"—" }}</dd>
+
+        <dt>Last Updated</dt>
+        <dd>{{ show.last_updated }}</dd>
+    </dl>
+
+    <div class="actions-row">
+        <a href="{% url 'edit' show.id %}" class="btn btn-secondary">Edit</a>
+        <form action="{% url 'destroy' show.id %}" method="post"
+              onsubmit="return confirm('Delete {{ show.title }}?');">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Dashboard · Blueprint{% endblock %}
+
+{% block content %}
+<div class="detail-head">
+  <div>
+    <span class="eyebrow">Developers dashboard</span>
+    <h1>Welcome, {{ user.first_name }}</h1>
+  </div>
+  <a href="{% url 'create_project' %}" class="btn btn-primary">+ Create project</a>
+</div>
+
+<div class="table-wrap">
+  <div class="proj-row head">
+    <span>ID</span>
+    <span>Project name</span>
+    <span>Project owner</span>
+    <span>Action</span>
+  </div>
+
+  {% for row in rows %}
+  <div class="proj-row {% if row.is_owner %}is-owner{% elif row.is_member %}is-member{% endif %}">
+    <span class="proj-id">{{ row.project.id }}</span>
+    <span class="proj-name"><a href="{% url 'project_details' row.project.id %}">{{ row.project.name }}</a></span>
+    <span class="proj-owner">{{ row.project.owner.full_name }}</span>
+    <span>
+      {% if row.is_owner %}
+        <span class="badge badge-owner">Owner</span>
+        <form class="inline-form" method="post" action="{% url 'delete_project' row.project.id %}" onsubmit="return confirm('Delete \u201c{{ row.project.name }}\u201d? This can\u2019t be undone.');">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      {% elif row.is_member %}
+        <span class="badge badge-member">Joined</span>
+        <form class="inline-form" method="post" action="{% url 'leave_project' row.project.id %}">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="dashboard">
+          <button type="submit" class="btn btn-leave btn-sm">Separate −</button>
+        </form>
+      {% else %}
+        <form class="inline-form" method="post" action="{% url 'join_project' row.project.id %}">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="dashboard">
+          <button type="submit" class="btn btn-join btn-sm">Join +</button>
+        </form>
+      {% endif %}
+    </span>
+  </div>
+  {% empty %}
+  <div class="empty-state">
+    <p>No projects yet. Create the first one to get your team started.</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

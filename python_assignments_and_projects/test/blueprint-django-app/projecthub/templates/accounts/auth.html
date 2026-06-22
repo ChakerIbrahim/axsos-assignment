@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Sign in or create an account · Blueprint{% endblock %}
+
+{% block content %}
+<div class="auth-hero">
+  <span class="eyebrow">Project planning, drafted together</span>
+  <h1>Sketch the plan. Build it as a team.</h1>
+  <p>Blueprint is where your team turns an idea into a tracked project — create one, invite collaborators, and keep everyone on the same page.</p>
+</div>
+
+<div class="auth-grid">
+  <div class="card">
+    <h2>Create an account</h2>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      <input type="hidden" name="form_name" value="register">
+
+      <div class="form-row">
+        <div class="field">
+          <label for="id_register-first_name">First name</label>
+          <input type="text" id="id_register-first_name" name="register-first_name" value="{{ register_form.first_name.value|default:'' }}">
+          <span class="spec">at least 2 characters</span>
+          {% if register_form.first_name.errors %}<span class="field-error">{{ register_form.first_name.errors.0 }}</span>{% endif %}
+        </div>
+        <div class="field">
+          <label for="id_register-last_name">Last name</label>
+          <input type="text" id="id_register-last_name" name="register-last_name" value="{{ register_form.last_name.value|default:'' }}">
+          <span class="spec">at least 2 characters</span>
+          {% if register_form.last_name.errors %}<span class="field-error">{{ register_form.last_name.errors.0 }}</span>{% endif %}
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="id_register-email">Email</label>
+        <input type="text" id="id_register-email" name="register-email" value="{{ register_form.email.value|default:'' }}">
+        <span class="spec">must be a valid, unique address</span>
+        {% if register_form.email.errors %}<span class="field-error">{{ register_form.email.errors.0 }}</span>{% endif %}
+      </div>
+
+      <div class="field">
+        <label for="id_register-password">Password</label>
+        <input type="password" id="id_register-password" name="register-password">
+        <span class="spec">at least 8 characters</span>
+        {% if register_form.password.errors %}<span class="field-error">{{ register_form.password.errors.0 }}</span>{% endif %}
+      </div>
+
+      <div class="field">
+        <label for="id_register-confirm_password">Confirm password</label>
+        <input type="password" id="id_register-confirm_password" name="register-confirm_password">
+        <span class="spec">must match the password above</span>
+        {% if register_form.confirm_password.errors %}<span class="field-error">{{ register_form.confirm_password.errors.0 }}</span>{% endif %}
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>Log in</h2>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      <input type="hidden" name="form_name" value="login">
+
+      <div class="field">
+        <label for="id_login-email">Email</label>
+        <input type="text" id="id_login-email" name="login-email" value="{{ login_form.email.value|default:'' }}">
+      </div>
+
+      <div class="field">
+        <label for="id_login-password">Password</label>
+        <input type="password" id="id_login-password" name="login-password">
+      </div>
+
+      {% if login_form.non_field_errors %}
+        <span class="field-error">{{ login_form.non_field_errors.0 }}</span>
+      {% endif %}
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

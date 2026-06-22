@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style01.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <article>
+    <h1>Welcome , {{ user.first_name }} {{ user.last_name }} </h1>
+    <a href="{% url 'logout'  %}">LogOUT</a>
+    </article>
+    <main>
+        <form action="{% url 'addgame' %}" method="post">
+            {% csrf_token %}
+            <label for="">Game Name</label>
+            <input type="text" name="gname" id=""  >
+
+            <label for="">Genre</label>
+            <select name="genre" id=""  >
+                <option value="indie"> indie </option>
+                <option value="action"> action </option>
+                <option value="platform"> platform </option>
+                <option value="farm"> farm </option>
+                <option value="storymode"> storymode </option>
+            </select>
+
+            <label for="">Release date</label>
+            <input type="date" name="release_date" id="">
+
+            <label for="">descriptition</label>
+            <textarea name="desc" id="" ></textarea>
+
+            <button type="submit"> Create a game</button>
+                            {% if messages %}
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+        </form> 
+        <div>
+            <table>
+                <thead>
+                    <th><p>Game</p></th>
+                    <th><p>Genre</p></th>
+                    <th><p>Release Date</p></th>
+                </thead>
+                <tbody>
+                    {% for game in game_data %}
+                    <tr>
+                        <td><a href="{% url 'reveal' game.id %}"> {{ game.gname }} </a></td>
+                        <td><p> {{ game.genre }}</p> </td>
+                        <td><p> {{ game.release_date }}</p> </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+    
+</body>
+</html>

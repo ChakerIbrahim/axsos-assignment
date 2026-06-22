@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Details</title>
+</head>
+<body>
+
+    <a href="{% url 'dashboard' %}">Back to dashboard</a>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <h1>{{ project.name }}</h1>
+
+    <p>
+        Owner:
+        {{ project.owner.first_name }}
+        {{ project.owner.last_name }}
+    </p>
+
+    <p>{{ project.description }}</p>
+
+    <p>
+        Start: {{ project.start_date }}
+        &mdash;
+        End: {{ project.end_date }}
+    </p>
+
+    {% if project.owner == request.user %}
+        <a href="{% url 'edit_project' project.id %}">Edit Project</a>
+        <a href="{% url 'delete_project' project.id %}">Delete Project</a>
+    {% elif request.user in project.members.all %}
+        <a href="{% url 'leave_project' project.id %}">Leave Project</a>
+    {% else %}
+        <a href="{% url 'join_project' project.id %}">Join Project</a>
+    {% endif %}
+
+    <h2>Team</h2>
+
+    <ul>
+        {% for member in project.members.all %}
+        <li>
+            {{ member.first_name }}
+            {{ member.last_name }}
+        </li>
+        {% empty %}
+        <li>No one has joined yet.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

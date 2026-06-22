@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}Login / Register{% endblock %}
+
+{% block content %}
+<div class="panel-bar">Login Registrations</div>
+<div class="two-col">
+    <div class="card">
+        <h2>Create an Account</h2>
+        {{ register_form.non_field_errors }}
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <div class="form-row">
+                <div>
+                    <label>First Name</label>
+                    {{ register_form.first_name }}
+                    {{ register_form.first_name.errors }}
+                </div>
+                <div>
+                    <label>Email</label>
+                    {{ register_form.email }}
+                    {{ register_form.email.errors }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div>
+                    <label>Last Name</label>
+                    {{ register_form.last_name }}
+                    {{ register_form.last_name.errors }}
+                </div>
+                <div>
+                    <label>Password</label>
+                    {{ register_form.password }}
+                    {{ register_form.password.errors }}
+                </div>
+            </div>
+            <label>Date Of Birth</label>
+            {{ register_form.date_of_birth }}
+            {{ register_form.date_of_birth.errors }}
+
+            <label>Confirm Password</label>
+            {{ register_form.confirm_password }}
+            {{ register_form.confirm_password.errors }}
+
+            <label>Upload Avatar (URL)</label>
+            {{ register_form.avatar }}
+            {{ register_form.avatar.errors }}
+
+            <button type="submit" name="register_submit" class="btn btn-primary">Create Account</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>Sign In</h2>
+        {{ login_form.non_field_errors }}
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <label>Email</label>
+            {{ login_form.email }}
+            {{ login_form.email.errors }}
+
+            <label>Password</label>
+            {{ login_form.password }}
+            {{ login_form.password.errors }}
+
+            <button type="submit" name="login_submit" class="btn btn-primary">SignIn</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

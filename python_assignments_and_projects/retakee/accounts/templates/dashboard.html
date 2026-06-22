@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <table>
+    {% for project in projects %}
+<tr>
+<td>{{ project.id }}</td>
+ 
+        <td>
+<a href="/project/{{project.id}}/details">
+                {{ project.name }}
+</a>
+</td>
+ 
+        <td>
+            {{ project.owner.first_name }}
+            {{ project.owner.last_name }}
+</td>
+ 
+        <td>
+ 
+        {% if project.owner == request.user %}
+<a href="/project/{{project.id}}/delete">
+                Delete
+</a>
+ 
+        {% elif request.user in project.members.all %}
+<a href="/project/{{project.id}}/leave">
+                Separate
+</a>
+ 
+        {% else %}
+<a href="/project/{{project.id}}/join">
+                Join
+</a>
+ 
+        {% endif %}
+ 
+        </td>
+</tr>
+    {% endfor %}
+</table>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="panel-bar">User Dashboard</div>
+<div class="card purple-card">
+    <div class="page-head">
+        <h1>Welcome {{ request.user.first_name }} {{ request.user.last_name }}</h1>
+        <a href="{% url 'logout' %}" class="link-light">Logout</a>
+    </div>
+
+    <div class="two-col">
+        <form method="post" class="show-form">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            <label>Game name</label>
+            {{ form.name }}
+            {{ form.name.errors }}
+
+            <label>Genre</label>
+            {{ form.genre }}
+            {{ form.genre.errors }}
+
+            <label>Release Date</label>
+            {{ form.release_date }}
+            {{ form.release_date.errors }}
+
+            <label>Description</label>
+            {{ form.description }}
+            {{ form.description.errors }}
+
+            <button type="submit" class="btn btn-primary">Create a Game</button>
+        </form>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th><a href="?sort=name" class="sort-link">Game{% if current_sort == 'name' %} ▲{% endif %}</a></th>
+                    <th><a href="?sort=genre" class="sort-link">Genre{% if current_sort == 'genre' %} ▲{% endif %}</a></th>
+                    <th><a href="?sort=release_date" class="sort-link">Release Date{% if current_sort == 'release_date' %} ▲{% endif %}</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for game in games %}
+                <tr>
+                    <td><a href="{% url 'game_detail' game.id %}">{{ game.name }}</a></td>
+                    <td>{{ game.get_genre_display }}</td>
+                    <td>{{ game.formatted_release_date }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="3">No games yet.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

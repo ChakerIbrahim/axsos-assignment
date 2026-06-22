@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Create project · Blueprint{% endblock %}
+{% block page_class %} page-narrow{% endblock %}
+
+{% block content %}
+<span class="eyebrow">Hello, {{ user.full_name }}</span>
+<h1>Create project</h1>
+
+<div class="card">
+  <form method="post" novalidate>
+    {% csrf_token %}
+
+    <div class="field">
+      <label for="id_name">Project name</label>
+      <input type="text" id="id_name" name="name" value="{{ form.name.value|default:'' }}">
+      <span class="spec">at least 3 characters</span>
+      {% if form.name.errors %}<span class="field-error">{{ form.name.errors.0 }}</span>{% endif %}
+    </div>
+
+    <div class="field">
+      <label for="id_tagline">Tagline <span class="muted">(optional)</span></label>
+      <input type="text" id="id_tagline" name="tagline" value="{{ form.tagline.value|default:'' }}" placeholder="e.g. &quot;Don't repeat yourself&quot;">
+    </div>
+
+    <div class="field">
+      <label for="id_description">Description</label>
+      <textarea id="id_description" name="description">{{ form.description.value|default:'' }}</textarea>
+      <span class="spec">at least 10 characters</span>
+      {% if form.description.errors %}<span class="field-error">{{ form.description.errors.0 }}</span>{% endif %}
+    </div>
+
+    <div class="form-row">
+      <div class="field">
+        <label for="id_start_date">Start date</label>
+        <input type="date" id="id_start_date" name="start_date" value="{{ form.start_date.value|default:'' }}">
+        <span class="spec">required, must be today or later</span>
+        {% if form.start_date.errors %}<span class="field-error">{{ form.start_date.errors.0 }}</span>{% endif %}
+      </div>
+      <div class="field">
+        <label for="id_end_date">End date</label>
+        <input type="date" id="id_end_date" name="end_date" value="{{ form.end_date.value|default:'' }}">
+        <span class="spec">required</span>
+        {% if form.end_date.errors %}<span class="field-error">{{ form.end_date.errors.0 }}</span>{% endif %}
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Create</button>
+      <a href="{% url 'dashboard' %}" class="btn btn-outline">Back</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

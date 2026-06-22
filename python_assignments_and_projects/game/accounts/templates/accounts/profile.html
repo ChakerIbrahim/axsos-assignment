@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}{{ player.first_name }}'s Profile{% endblock %}
+
+{% block content %}
+<div class="panel-bar">Profile page</div>
+<div class="card purple-card">
+    <div class="page-head">
+        <h1>Welcome {{ player.first_name }}</h1>
+        <a href="{% url 'logout' %}" class="link-light">Logout</a>
+    </div>
+
+    <h2>Player Info</h2>
+    <div class="profile-body">
+        <img src="{{ player.avatar }}" alt="avatar" class="avatar">
+        <dl>
+            <dt>Name</dt>
+            <dd>{{ player.first_name }} {{ player.last_name }}</dd>
+            <dt>Email</dt>
+            <dd>{{ player.email }}</dd>
+            <dt>DOB</dt>
+            <dd>{{ player.date_of_birth }}</dd>
+        </dl>
+    </div>
+
+    <h3>Favourite Games</h3>
+    {% if ratings %}
+    <table class="data-table">
+        <thead>
+            <tr><th>ID</th><th>Game</th><th>Rate</th></tr>
+        </thead>
+        <tbody>
+            {% for rating in ratings %}
+            <tr>
+                <td>{{ rating.id }}</td>
+                <td><a href="{% url 'game_detail' rating.game.id %}">{{ rating.game.name }}</a></td>
+                <td>{{ rating.rate }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No favourite games yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

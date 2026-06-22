@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'book_style01.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <article>
+    <h1>Welcome , {{ user.first_name }} {{ user.last_name }}</h1>
+    <a href="{% url 'logout'  %}">Log Out</a>
+    </article>
+    <main> 
+        <div>
+            <h2>{{ game.gname }} </h2>
+            <p> Genre : {{ game.genre }}  </p>  
+            <p>Description : {{ game.desc }} </p>
+            <p> created_by : {{ game.created_by.first_name }} {{ game.created_by.last_name }} </p>
+            {% if user == game.created_by %}
+            <button class="deletes" > <a href="/deletegame/{{ game.id }}">delete</a></button>
+            <button class="updates" > <a href="/gotoupdate/{{ game.id }}">Update</a></button>
+            {%  endif %}
+
+        </div>
+    </main>
+</body>
+</html>

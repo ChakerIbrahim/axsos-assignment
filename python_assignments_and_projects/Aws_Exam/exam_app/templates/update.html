@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static  'style02.css' %}">
+
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>Update the Game</h1>
+        <form action="{% url 'editgame' game.id %}" method="POST">
+            {% csrf_token %}
+            <label for="">Game Name</label>
+            <input type="text" name="gname" value="{{ game.gname }}">
+            <label for="">Genre</label>
+            <input type="text" name="genre" value ="{{ game.genre }}">
+            <label for="">Release Date</label>
+            <input type="date" name="release_date" value="{{ game.release_date|date:'Y-m-d' }}" required>
+            <label for="">Description</label>
+            <textarea name="desc">{{ game.desc }}</textarea>
+            <button type="submit">Update</button>
+        </form>
+        <a href="{% url 'done' %}">Back to home</a>
+                    {% if messages %}
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+    </main>
+</body>
+</html>
