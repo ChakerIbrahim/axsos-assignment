@@ -27,7 +27,7 @@ public class TestOrder {
         order4.name = "Sam";
 
         // Print order1 object
-        System.out.println(order1);
+        System.out.println(order1.name + order1.ready + order1.total);
         // Predict order1.total
         System.out.println(order1.total); // 0.0
 
