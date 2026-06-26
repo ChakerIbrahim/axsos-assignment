@@ -1,27 +1,22 @@
 package com.axsos.coffeeapp;
 
 public class items {
-	//Items Variable
-	private String name;
-	private double price;
-	private int index;
-	//CONSTRUCTOR
-	public items(String name,Double price) {
-		this.name = name;
-		this.price = price;
-	}
-	//getter
-	public String getName() {
-		return name;
-	}
-	public double getPrice() {
-		return price;
-	}
-    public int getIndex() {
-        return index;
+    private String name;
+    private double price;
+    private int index;
+
+    public items(String name, double price) {
+        this.name = name;
+        this.price = price;
     }
-    //setter
-    public void setIndex(int index) {
-        this.index = index;
-    }
+
+    // Getters
+    public String getName() { return name; }
+    public double getPrice() { return price; }
+    public int getIndex() { return index; }
+
+    // Setters
+    public void setName(String name) { this.name = name; }
+    public void setPrice(double price) { this.price = price; }
+    public void setIndex(int index) { this.index = index; }
 }

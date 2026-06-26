@@ -2,11 +2,37 @@ package com.axsos.coffeeapp;
 
 import java.util.ArrayList;
 
-
 public class Order {
-    private String name;
-    private double total;
-    private boolean ready;
-    private ArrayList<items> items = new ArrayList<items>();
-}
+    private String customerName;
+    private ArrayList<Item> items;
 
+    public Order(String customerName) {
+        this.customerName = customerName;
+        this.items = new ArrayList<>();
+    }
+
+    // Getters
+    public String getCustomerName() { return customerName; }
+    public ArrayList<Item> getItems() { return items; }
+
+    // Setter
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    // Add item to order
+    public void addItem(Item item) {
+        items.add(item);
+    }
+
+    // Print order details
+    public void printOrder() {
+        System.out.println("Order for: " + customerName);
+        double total = 0;
+        for (Item item : items) {
+            System.out.println("  - " + item.getName() + " -- $" + item.getPrice());
+            total += item.getPrice();
+        }
+        System.out.println("Total: $" + total);
+    }
+}
