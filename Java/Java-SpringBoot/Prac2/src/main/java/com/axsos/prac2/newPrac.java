@@ -5,8 +5,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
-// ...
-@RestController
+ ...
 public class newPrac {
     @RequestMapping("/greeting")
     public String index(){
@@ -64,3 +63,5 @@ String courseId, @PathVariable("moduleId") String module Id;{
 	return "Course: " + courseId + ", module:" + moduleId;
 }
 }
+
+
