@@ -7,7 +7,7 @@
 <title>Current visit count</title>
 </head>
 <body>
-	<p>You have visited <a href="/">localhost:8080/</a> <span>${sessionScope.counter}</span> times</p>
+	<p>You have visited <a href="/">localhost:8080</a> <span>${sessionScope.counter}</span> times</p>
 	<a href="/">Test Again</a>
 </body>
 </html>
