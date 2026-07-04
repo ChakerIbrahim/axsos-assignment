@@ -1,10 +1,10 @@
-package com.axsos.bookapi;
+package com.axsos.BooksAPI;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BookapiApplicationTests {
+class BoooksApiApplicationTests {
 
 	@Test
 	void contextLoads() {
