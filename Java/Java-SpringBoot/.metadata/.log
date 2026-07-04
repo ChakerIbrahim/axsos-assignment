@@ -5863,3 +5863,696 @@ java.util.concurrent.TimeoutException
 	 at java.base/java.util.concurrent.CompletableFuture.join(CompletableFuture.java:2138)
 	 at org.eclipse.lsp4e.LanguageServerWrapper$1.run(LanguageServerWrapper.java:578)
 	 at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2026-07-02 20:54:08.639 -----------------------------------------------
+eclipse.buildId=4.40.0.202606090740
+java.version=25.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.springframework.boot.ide.branding.springtools
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.springtools
+
+!ENTRY ch.qos.logback.classic 1 0 2026-07-02 20:54:46.872
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2026-07-02 20:57:13.687
+!MESSAGE Logback config file: C:\Users\chake\OneDrive\Documentos\Axsos Course\Java\Java-SpringBoot\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.7.101.20251017-1242.xml
+
+!ENTRY org.eclipse.ui 2 0 2026-07-02 20:57:14.213
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2026-07-02 20:57:14.214
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 2 0 2026-07-02 20:57:15.000
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2026-07-02 20:57:15.000
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.egit.ui 2 0 2026-07-02 20:57:26.012
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\chake'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.lsp4e 2 0 2026-07-02 20:57:32.677
+!MESSAGE Timed out after waiting for 300ms for semantic tokens from Language Servers
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1981)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2116)
+	at org.eclipse.lsp4e.jdt.LSJavaSemanticTokensProvider.computeSemanticTokens(LSJavaSemanticTokensProvider.java:68)
+	at org.eclipse.jdt.internal.ui.javaeditor.SemanticHighlightingReconciler.getContributedSemanticTokens(SemanticHighlightingReconciler.java:423)
+	at org.eclipse.jdt.internal.ui.javaeditor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:470)
+	at org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitEditor.reconciled(CompilationUnitEditor.java:1766)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconciled(JavaReconcilingStrategy.java:228)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconciled(JavaCompositeReconcilingStrategy.java:171)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:147)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:398)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundWorker.lambda$0(AbstractReconciler.java:239)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$ReconcilerJob.run(AbstractReconciler.java:697)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core 4 4 2026-07-02 20:57:47.143
+!MESSAGE Error occurred while deleting: /examoop/target/classes/com
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:839)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:179)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:104)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:315)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:227)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1146)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:363)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:486)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:489)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:601)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:549)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:631)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:208)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Could not delete '/examoop/target/classes/com'.
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:440)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:373)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:832)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1917)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:826)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:179)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:104)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:315)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:227)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1146)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:363)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:486)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:489)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:601)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:549)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:631)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:208)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Could not delete: C:\Users\chake\OneDrive\Documentos\Axsos Course\Java\Java-SpringBoot\examoop\target\classes\com.
+java.nio.file.AccessDeniedException: C:\Users\chake\OneDrive\Documentos\Axsos Course\Java\Java-SpringBoot\examoop\target\classes\com
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:269)
+	at java.base/sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110)
+	at java.base/java.nio.file.Files.deleteIfExists(Files.java:1087)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:312)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:203)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.delete(DeleteVisitor.java:68)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.visit(DeleteVisitor.java:170)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:128)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:437)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:373)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:832)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1917)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:826)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:179)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:104)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:315)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:227)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1146)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:363)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:486)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:489)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:601)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:549)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:631)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:208)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2026-07-02 20:57:47.144
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2026-07-02 20:57:47.145
+!MESSAGE Could not delete '/examoop/target/classes/com'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:440)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:373)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:832)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1917)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:826)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:179)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:104)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:315)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:227)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1146)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:363)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:486)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:489)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:601)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:549)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:631)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:208)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Could not delete: C:\Users\chake\OneDrive\Documentos\Axsos Course\Java\Java-SpringBoot\examoop\target\classes\com.
+java.nio.file.AccessDeniedException: C:\Users\chake\OneDrive\Documentos\Axsos Course\Java\Java-SpringBoot\examoop\target\classes\com
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:269)
+	at java.base/sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110)
+	at java.base/java.nio.file.Files.deleteIfExists(Files.java:1087)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:312)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:203)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.delete(DeleteVisitor.java:68)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.visit(DeleteVisitor.java:170)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:128)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:437)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:373)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:832)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1917)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:826)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:179)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:104)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:315)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:227)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1146)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:363)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:486)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:489)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:601)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:549)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:631)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:208)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 3 org.eclipse.core.resources 4 273 2026-07-02 20:57:47.145
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2026-07-02 20:57:47.145
+!MESSAGE Could not delete: C:\Users\chake\OneDrive\Documentos\Axsos Course\Java\Java-SpringBoot\examoop\target\classes\com.
+!STACK 0
+java.nio.file.AccessDeniedException: C:\Users\chake\OneDrive\Documentos\Axsos Course\Java\Java-SpringBoot\examoop\target\classes\com
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:269)
+	at java.base/sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110)
+	at java.base/java.nio.file.Files.deleteIfExists(Files.java:1087)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:312)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:203)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.delete(DeleteVisitor.java:68)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.visit(DeleteVisitor.java:170)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:128)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:437)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:373)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:832)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1917)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:826)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:179)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:104)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:315)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:227)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1146)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:363)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:486)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:489)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:601)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:549)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:631)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:208)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core 4 4 2026-07-02 20:57:47.331
+!MESSAGE Error occurred while deleting: /examoop/target/test-classes/com
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:839)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:179)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:104)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:227)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1146)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:363)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:486)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:489)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:601)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:549)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:631)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:208)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Could not delete '/examoop/target/test-classes/com'.
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:440)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:373)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:832)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1917)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:826)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:179)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:104)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:227)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1146)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:363)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:486)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:489)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:601)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:549)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:631)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:208)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Could not delete: C:\Users\chake\OneDrive\Documentos\Axsos Course\Java\Java-SpringBoot\examoop\target\test-classes\com.
+java.nio.file.AccessDeniedException: C:\Users\chake\OneDrive\Documentos\Axsos Course\Java\Java-SpringBoot\examoop\target\test-classes\com
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:269)
+	at java.base/sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110)
+	at java.base/java.nio.file.Files.deleteIfExists(Files.java:1087)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:312)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:203)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.delete(DeleteVisitor.java:68)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.visit(DeleteVisitor.java:170)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:128)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:437)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:373)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:832)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1917)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:826)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:179)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:104)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:227)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1146)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:363)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:486)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:489)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:601)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:549)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:631)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:208)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2026-07-02 20:57:47.332
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2026-07-02 20:57:47.332
+!MESSAGE Could not delete '/examoop/target/test-classes/com'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:440)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:373)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:832)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1917)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:826)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:179)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:104)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:227)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1146)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:363)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:486)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:489)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:601)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:549)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:631)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:208)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Could not delete: C:\Users\chake\OneDrive\Documentos\Axsos Course\Java\Java-SpringBoot\examoop\target\test-classes\com.
+java.nio.file.AccessDeniedException: C:\Users\chake\OneDrive\Documentos\Axsos Course\Java\Java-SpringBoot\examoop\target\test-classes\com
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:269)
+	at java.base/sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110)
+	at java.base/java.nio.file.Files.deleteIfExists(Files.java:1087)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:312)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:203)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.delete(DeleteVisitor.java:68)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.visit(DeleteVisitor.java:170)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:128)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:437)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:373)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:832)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1917)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:826)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:179)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:104)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:227)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1146)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:363)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:486)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:489)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:601)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:549)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:631)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:208)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 3 org.eclipse.core.resources 4 273 2026-07-02 20:57:47.333
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2026-07-02 20:57:47.333
+!MESSAGE Could not delete: C:\Users\chake\OneDrive\Documentos\Axsos Course\Java\Java-SpringBoot\examoop\target\test-classes\com.
+!STACK 0
+java.nio.file.AccessDeniedException: C:\Users\chake\OneDrive\Documentos\Axsos Course\Java\Java-SpringBoot\examoop\target\test-classes\com
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:269)
+	at java.base/sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110)
+	at java.base/java.nio.file.Files.deleteIfExists(Files.java:1087)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:312)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:203)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.delete(DeleteVisitor.java:68)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.visit(DeleteVisitor.java:170)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:128)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:437)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:373)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:832)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1917)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:826)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:179)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:104)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:227)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1146)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:363)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:486)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:489)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:601)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:549)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:631)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:208)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 20:57:51.100
+!MESSAGE Plugin is modifying compileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 20:57:51.102
+!MESSAGE Plugin is modifying compileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 20:57:51.103
+!MESSAGE Plugin is modifying testCompileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 20:57:51.104
+!MESSAGE Plugin is modifying testCompileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:03:44.448
+!MESSAGE Plugin is modifying compileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:03:44.450
+!MESSAGE Plugin is modifying compileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:03:44.451
+!MESSAGE Plugin is modifying testCompileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:03:44.452
+!MESSAGE Plugin is modifying testCompileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:03:46.518
+!MESSAGE Plugin is modifying compileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:03:46.519
+!MESSAGE Plugin is modifying compileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:03:46.519
+!MESSAGE Plugin is modifying testCompileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:03:46.520
+!MESSAGE Plugin is modifying testCompileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:03:47.183
+!MESSAGE Plugin is modifying compileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:03:47.184
+!MESSAGE Plugin is modifying compileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:03:47.185
+!MESSAGE Plugin is modifying testCompileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:03:47.186
+!MESSAGE Plugin is modifying testCompileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:05:20.189
+!MESSAGE Plugin is modifying compileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:05:20.190
+!MESSAGE Plugin is modifying compileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:05:20.191
+!MESSAGE Plugin is modifying testCompileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:05:20.192
+!MESSAGE Plugin is modifying testCompileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:06:41.383
+!MESSAGE Plugin is modifying compileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:06:41.384
+!MESSAGE Plugin is modifying compileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:06:41.385
+!MESSAGE Plugin is modifying testCompileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 21:06:41.386
+!MESSAGE Plugin is modifying testCompileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 22:29:45.865
+!MESSAGE Plugin is modifying compileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 22:29:45.869
+!MESSAGE Plugin is modifying compileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 22:29:45.873
+!MESSAGE Plugin is modifying testCompileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 22:29:45.875
+!MESSAGE Plugin is modifying testCompileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 23:12:39.295
+!MESSAGE Plugin is modifying compileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 23:12:39.301
+!MESSAGE Plugin is modifying compileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 23:12:39.304
+!MESSAGE Plugin is modifying testCompileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 23:12:39.307
+!MESSAGE Plugin is modifying testCompileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 23:29:11.007
+!MESSAGE Plugin is modifying compileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 23:29:11.010
+!MESSAGE Plugin is modifying compileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 23:29:11.011
+!MESSAGE Plugin is modifying testCompileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 23:29:11.013
+!MESSAGE Plugin is modifying testCompileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.jface 2 0 2026-07-02 23:43:50.078
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2026-07-02 23:43:50.079
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolInWorkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolInWorkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 23:46:13.147
+!MESSAGE Plugin is modifying compileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 23:46:13.148
+!MESSAGE Plugin is modifying compileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 23:46:13.149
+!MESSAGE Plugin is modifying testCompileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-02 23:46:13.150
+!MESSAGE Plugin is modifying testCompileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2026-07-03 00:13:15.004
+!MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
+
+!ENTRY org.eclipse.lsp4e 2 0 2026-07-03 00:13:15.612
+!MESSAGE Timed out after waiting for 300ms for semantic tokens from Language Servers
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1981)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2116)
+	at org.eclipse.lsp4e.jdt.LSJavaSemanticTokensProvider.computeSemanticTokens(LSJavaSemanticTokensProvider.java:68)
+	at org.eclipse.jdt.internal.ui.javaeditor.SemanticHighlightingReconciler.getContributedSemanticTokens(SemanticHighlightingReconciler.java:423)
+	at org.eclipse.jdt.internal.ui.javaeditor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:470)
+	at org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitEditor.reconciled(CompilationUnitEditor.java:1766)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconciled(JavaReconcilingStrategy.java:228)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconciled(JavaCompositeReconcilingStrategy.java:171)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:115)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundWorker.run(AbstractReconciler.java:203)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-03 00:13:17.049
+!MESSAGE Plugin is modifying compileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-03 00:13:17.052
+!MESSAGE Plugin is modifying compileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addCompileSourceRoot()/removeCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-03 00:13:17.054
+!MESSAGE Plugin is modifying testCompileSourceRoots through clear(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2026-07-03 00:13:17.057
+!MESSAGE Plugin is modifying testCompileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+
+!ENTRY org.eclipse.jface.text 4 0 2026-07-03 00:13:19.962
+!MESSAGE org.eclipse.core.runtime.AssertionFailedException: null argument:
+!STACK 0
+java.util.concurrent.CompletionException: org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323)
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:359)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:364)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1180)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:531)
+	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2206)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:217)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:455)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:93)
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:80)
+	at org.eclipse.lsp4e.LanguageServerPlugin.getDefault(LanguageServerPlugin.java:85)
+	at org.eclipse.lsp4e.LSPEclipseUtils.isNonBufferedFileHandlingEnabled(LSPEclipseUtils.java:1667)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getFile(LSPEclipseUtils.java:1379)
+	at org.eclipse.lsp4e.LanguageServerWrapper.connectDocument(LanguageServerWrapper.java:784)
+	at org.eclipse.lsp4e.LanguageServers$LanguageServerDocumentExecutor.lambda$0(LanguageServers.java:268)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1171)
+	... 13 more
+
+!ENTRY org.eclipse.jface.text 4 0 2026-07-03 00:13:19.965
+!MESSAGE org.eclipse.core.runtime.AssertionFailedException: null argument:
+!STACK 0
+java.util.concurrent.CompletionException: org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323)
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:359)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:364)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1180)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:531)
+	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2206)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:217)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$3(LanguageServerWrapper.java:455)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:93)
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:80)
+	at org.eclipse.lsp4e.LanguageServerPlugin.getDefault(LanguageServerPlugin.java:85)
+	at org.eclipse.lsp4e.LSPEclipseUtils.isNonBufferedFileHandlingEnabled(LSPEclipseUtils.java:1667)
+	at org.eclipse.lsp4e.LSPEclipseUtils.getFile(LSPEclipseUtils.java:1379)
+	at org.eclipse.lsp4e.LanguageServerWrapper.connectDocument(LanguageServerWrapper.java:784)
+	at org.eclipse.lsp4e.LanguageServers$LanguageServerDocumentExecutor.lambda$0(LanguageServers.java:268)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1171)
+	... 13 more
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2026-07-03 00:13:20.117
+!MESSAGE executing callback sts4.classpath.swhKUnrR FAILED
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 4 0 2026-07-03 00:13:20.117
+!MESSAGE java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.CompletableFuture$UniCompose@25d9de3c rejected from java.util.concurrent.ThreadPoolExecutor@f59af47[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 7111]
+!STACK 0
+java.util.concurrent.ExecutionException: java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.CompletableFuture$UniCompose@25d9de3c rejected from java.util.concurrent.ThreadPoolExecutor@f59af47[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 7111]
+	at java.base/java.util.concurrent.CompletableFuture.wrapInExecutionException(CompletableFuture.java:345)
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:440)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2117)
+	at org.springframework.tooling.ls.eclipse.commons.LSP4ECommandExecutor.executeClientCommand(LSP4ECommandExecutor.java:31)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.flush(SendClasspathNotificationsJob.java:192)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.CompletableFuture$UniCompose@25d9de3c rejected from java.util.concurrent.ThreadPoolExecutor@f59af47[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 7111]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2032)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:787)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1328)
+	at java.base/java.util.concurrent.Executors$DelegatedExecutorService.execute(Executors.java:665)
+	at java.base/java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1205)
+	at java.base/java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2379)
+	at org.eclipse.lsp4e.LanguageServerWrapper.executeImpl(LanguageServerWrapper.java:1069)
+	at org.eclipse.lsp4e.LanguageServers.lambda$23(LanguageServers.java:445)
+	at java.base/java.util.concurrent.CompletableFuture.uniApplyNow(CompletableFuture.java:705)
+	at java.base/java.util.concurrent.CompletableFuture.uniApplyStage(CompletableFuture.java:683)
+	at java.base/java.util.concurrent.CompletableFuture.thenApply(CompletableFuture.java:2227)
+	at org.eclipse.lsp4e.LanguageServers.lambda$22(LanguageServers.java:443)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:635)
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:291)
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:652)
+	at org.eclipse.lsp4e.LanguageServers.computeFirst(LanguageServers.java:181)
+	at org.eclipse.lsp4e.LanguageServers.computeFirst(LanguageServers.java:145)
+	at org.springframework.tooling.ls.eclipse.commons.LSP4ECommandExecutor.executeClientCommand(LSP4ECommandExecutor.java:29)
+	... 3 more

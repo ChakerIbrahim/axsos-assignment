@@ -5,7 +5,7 @@ public class Item {
 	private double price;
 	
 	public Item(String name, double price) {
-		super();
+//		super();
 		this.name = name;
 		this.price = price;
 	}
