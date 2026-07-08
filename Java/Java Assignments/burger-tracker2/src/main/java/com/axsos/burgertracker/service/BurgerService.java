@@ -14,18 +14,17 @@ public class BurgerService {
 
     private final BurgerRepository burgerRepository;
 
-    @Autowired
     public BurgerService(BurgerRepository burgerRepository) {
         this.burgerRepository = burgerRepository;
     }
 
-    // Used by the render/GET route to fill the table
     public List<Burger> findAll() {
         List<Burger> burgers = new ArrayList<>();
-        burgerRepository.findAll().forEach(burgers::add);
+        for (Burger burger : burgerRepository.findAll()) {
+            burgers.add(burger);
+        }
         return burgers;
     }
-    
     // NEW: used by the edit route to look up one burger by its id
 
     public Optional<Burger> findById(Long id) {
@@ -35,7 +34,7 @@ public class BurgerService {
 
     // Used by both create AND update - save() inserts if id is null,
     // updates the existing row if id is already set.
-    public Burger save(Burger burger) {
+    public Burger create(Burger burger) {
         return burgerRepository.save(burger);
     }
 }

@@ -20,7 +20,6 @@ public class BurgerController {
 
     private final BurgerService burgerService;
 
-    @Autowired
     public BurgerController(BurgerService burgerService) {
         this.burgerService = burgerService;
     }
@@ -46,7 +45,7 @@ public class BurgerController {
             return "index";
         }
 
-        burgerService.save(burger);
+        burgerService.create(burger);
 
         // Redirect (PRG pattern) so refreshing the page doesn't resubmit the form
         return "redirect:/";
@@ -82,7 +81,7 @@ public class BurgerController {
             // and the user's (invalid) input still in the fields.
     		return"edit";
     	}
-    	burgerService.save(burger);
+    	burgerService.create(burger);
     	return "redirect:/";
     }
 }

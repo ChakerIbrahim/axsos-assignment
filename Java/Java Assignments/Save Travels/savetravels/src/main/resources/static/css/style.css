@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #fafafa;
+    margin: 0;
+    padding: 40px 0;
+}
+
+.container {
+    width: 640px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 30px 40px;
+}
+
+.brand {
+    color: #2a9db5;
+    margin-top: 0;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+table th, table td {
+    border: 1px solid #444;
+    padding: 8px 10px;
+    text-align: center;
+}
+
+table.details, table.details td {
+    border: none;
+    text-align: left;
+}
+
+table.details .label {
+    font-weight: bold;
+    width: 200px;
+    vertical-align: top;
+}
+
+.actions form.inline {
+    display: inline;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #c0392b;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1em;
+}
+
+h2 {
+    color: #2a9db5;
+}
+
+form p {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+form label {
+    width: 140px;
+    font-weight: bold;
+    padding-top: 4px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea {
+    padding: 5px;
+    width: 220px;
+}
+
+.error {
+    color: #c0392b;
+    font-size: 0.85em;
+    display: block;
+}
+
+.submit-btn {
+    background: #2a9db5;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 150px;
+}
+
+a {
+    color: #2a9db5;
+}
