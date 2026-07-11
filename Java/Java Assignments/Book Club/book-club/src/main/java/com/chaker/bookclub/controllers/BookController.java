@@ -66,7 +66,7 @@ public class BookController {
     // POST /books : receives the submitted form and creates the book
     @PostMapping("/books")
     public String createBook(@Valid @ModelAttribute("book") Book book,
-            BindingResult result, HttpSession session) {
+                             BindingResult result, HttpSession session) {
 
         // Guard: only logged-in users
         if (session.getAttribute("userId") == null) {
@@ -94,7 +94,7 @@ public class BookController {
     // The book title on the Books page links here.
     @GetMapping("/books/{id}")
     public String showBook(@PathVariable("id") Long id,
-            HttpSession session, Model model) {
+                           HttpSession session, Model model) {
 
         // Guard: only logged-in users
         if (session.getAttribute("userId") == null) {
@@ -118,7 +118,7 @@ public class BookController {
     // pre-populated with the existing values for the book
     @GetMapping("/books/{id}/edit")
     public String editBook(@PathVariable("id") Long id,
-            HttpSession session, Model model) {
+                           HttpSession session, Model model) {
 
         // Guard: only logged-in users
         if (session.getAttribute("userId") == null) {
@@ -144,8 +144,8 @@ public class BookController {
     // Validations: same as for create.
     @PutMapping("/books/{id}")
     public String updateBook(@PathVariable("id") Long id,
-            @Valid @ModelAttribute("book") Book book,
-            BindingResult result, HttpSession session) {
+                             @Valid @ModelAttribute("book") Book book,
+                             BindingResult result, HttpSession session) {
 
         // Guard: only logged-in users
         if (session.getAttribute("userId") == null) {

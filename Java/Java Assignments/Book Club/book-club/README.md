@@ -45,7 +45,7 @@ A Spring Boot web application where friends share thoughts on books. It combines
 
 ## Screenshots
 
-> Replace these placeholders with your own screenshots after running the app.
+
 
 **Login and Registration page**
 

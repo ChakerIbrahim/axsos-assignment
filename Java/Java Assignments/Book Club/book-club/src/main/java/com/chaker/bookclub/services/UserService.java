@@ -25,11 +25,9 @@ public class UserService {
     // whenever a user submits a registration form.
     public User register(User newUser, BindingResult result) {
 
-        // Reject if email is taken (present in database):
-        // query the database for a user with this email.
+        // Reject if email is taken (present in database)
         Optional<User> potentialUser = userRepo.findByEmail(newUser.getEmail());
         if (potentialUser.isPresent()) {
-            // Add a custom error to the BindingResult with rejectValue
             result.rejectValue("email", "Unique", "This email is already registered!");
         }
 
@@ -39,14 +37,11 @@ public class UserService {
         }
 
         // Return null if result has errors
-        // (the controller will re-render the form with the messages)
         if (result.hasErrors()) {
             return null;
         }
 
-        // Hash and set password, save user to database.
-        // BCrypt.hashpw creates a hash of the user's password,
-        // and it is the HASH that we store - never the plain password.
+        // Hash and set password, save user to database
         String hashed = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
         newUser.setPassword(hashed);
         return userRepo.save(newUser);
@@ -68,9 +63,7 @@ public class UserService {
         // The user exists: take them out of the Optional
         User user = potentialUser.get();
 
-        // Reject if BCrypt password match fails.
-        // BCrypt.checkpw compares the entered password
-        // with the hashed password saved in the database.
+        // Reject if BCrypt password match fails
         if (!BCrypt.checkpw(newLoginObject.getPassword(), user.getPassword())) {
             result.rejectValue("password", "Matches", "Invalid Password!");
         }
@@ -84,8 +77,7 @@ public class UserService {
         return user;
     }
 
-    // Finds one user by their id (used to greet the logged-in
-    // user on the success page using the id saved in session)
+    // Finds one user by their id (used with the id saved in session)
     public User findUserById(Long id) {
         Optional<User> potentialUser = userRepo.findById(id);
         if (potentialUser.isPresent()) {

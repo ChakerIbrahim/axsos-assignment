@@ -43,7 +43,7 @@ public class HomeController {
     // POST /register : handles the registration form
     @PostMapping("/register")
     public String register(@Valid @ModelAttribute("newUser") User newUser,
-            BindingResult result, Model model, HttpSession session) {
+                           BindingResult result, Model model, HttpSession session) {
 
         // Extra validations (email taken, confirm matches) + creation
         // happen in the service; errors land in the same BindingResult
@@ -65,7 +65,7 @@ public class HomeController {
     // POST /login : handles the login form
     @PostMapping("/login")
     public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin,
-            BindingResult result, Model model, HttpSession session) {
+                        BindingResult result, Model model, HttpSession session) {
 
         // The service checks the email exists + BCrypt password match
         User user = userServ.login(newLogin, result);

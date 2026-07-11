@@ -6,10 +6,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
 
 // @Entity: this class maps to a table in the database
 @Entity
@@ -35,9 +35,12 @@ public class User {
     @Email(message = "Please enter a valid email!")
     private String email;
 
-    // Password - at least 8 characters, not blank
+    // NINJA BONUS: strengthened password - at least 8 characters,
+    // not blank, AND at least one uppercase letter and one numeral
     @NotEmpty(message = "Password is required!")
     @Size(min = 8, max = 128, message = "Password must be between 8 and 128 characters")
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*\\d).*$",
+            message = "Password must contain at least one uppercase letter and one numeral!")
     private String password;
 
     // @Transient: this field is NOT stored in the database.
@@ -48,6 +51,30 @@ public class User {
     @NotEmpty(message = "Confirm Password is required!")
     @Size(min = 8, max = 128, message = "Confirm Password must be between 8 and 128 characters")
     private String confirm;
+
+    // NINJA BONUS: birthday (date picker on the form).
+    // @NotNull because a date is not text, so @NotEmpty doesn't apply.
+    // @Past: the date must be before today.
+    // The "at least ten years old" rule needs math, so it's in the service.
+    @NotNull(message = "Birthday is required!")
+    @Past(message = "Birthday must be in the past!")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate birthday;
+
+    // NINJA BONUS: drop-down menu
+    @NotEmpty(message = "Please select your occupation!")
+    private String occupation;
+
+    // NINJA BONUS: radio buttons
+    @NotEmpty(message = "Please select your experience level!")
+    private String experience;
+
+    // NINJA BONUS: checkboxes - programming languages.
+    // Spring joins multiple checked boxes into ONE comma-separated
+    // String (e.g. "Java,Python"), so @NotEmpty means
+    // "at least one language must be selected".
+    @NotEmpty(message = "Please select at least one language of interest!")
+    private String languages;
 
     // Empty constructor required by JPA
     public User() {
@@ -92,5 +119,37 @@ public class User {
 
     public void setConfirm(String confirm) {
         this.confirm = confirm;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+
+    public String getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(String languages) {
+        this.languages = languages;
     }
 }

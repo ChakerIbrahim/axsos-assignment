@@ -1,5 +1,7 @@
 package com.chaker.authentication.services;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -36,6 +38,14 @@ public class UserService {
         // Reject if password doesn't match confirmation
         if (!newUser.getPassword().equals(newUser.getConfirm())) {
             result.rejectValue("confirm", "Matches", "The Confirm Password must match Password!");
+        }
+
+        if(newUser.getBirthday() !=null) {
+            int age = Period.between(newUser.getBirthday(), LocalDate.now()).getYears();
+            if (age < 10) {
+                result.rejectValue("birthday", "Matches", "You must be at least ten years old to register!");
+
+            }
         }
 
         // Return null if result has errors
