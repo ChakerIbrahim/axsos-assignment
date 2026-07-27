@@ -1,0 +1,65 @@
+import React, { Component } from "react";
+
+const myReactComponent = React.createElement(
+    "h1",
+    {} , 
+    "I am creating my first React element"
+);
+
+const myNestedReactComponent = React.cloneElement(
+    "div",
+    {}, 
+    React.cloneElement(
+        "p",
+        {},
+        "This element is nested"
+    )
+);
+
+const element = <h1>Hello React!</h1>;
+
+const element = React.createElement(
+    "h1",
+    null,
+    "Hello React!"
+);
+
+const App = () =>(<h1>our First React Page Has Rendered</h1>);
+
+const root = ReactDOM.createRoot(
+    document.getElementById("root")
+);
+
+root.render(<App/>);
+
+class App extends Component{
+    render(){
+        return(
+            <>
+                <h1>Hello World</h1>
+                <p>This is a paragraph</p>
+            </>
+            
+        );
+    }
+}
+
+class App extends Component{
+    render(){
+        return(
+            <h1 className="my-class">This is JSX</h1>
+        );
+    }
+}
+class App extends Component{
+    render(){
+        return(
+            <form action="/process" method="post">
+                <div class="form-group">
+                    <label htmlFor="email">Email:</label>
+                    <input type="text" id="email" name="username" class="form-control"/>
+                </div>
+            </form>
+        )
+    }
+}
