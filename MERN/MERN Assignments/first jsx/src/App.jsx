@@ -14,14 +14,17 @@ function App() {
   return (
     // <> </> is a Fragment: lets us return several elements without an extra <div>
     <>
-      {/* Main heading — the text is sent in through the "text" prop */}
-      <Header text={"Hello Dojo!"} />
-      {/* Subheading above the list */}
-      <Title text={"Things I need to do:"} />
-      {/* To-do list — the array is sent in through the "items" prop */}
-      <List items={["Learn react", "Climb Mnt Everest", "Run a marathon"]} />
+    <h1>Hello Dojo!</h1>
+    <p>Things I need to do</p>
+    <ul>
+      <li>Learn React</li>
+      <li>Climb Mnt Everest</li>
+      <li>Runn a Marathon</li>
+      <li>Feed the Dogs</li>
+    </ul>
+    
     </>
-  )
+  );
 }
 
 export default App
