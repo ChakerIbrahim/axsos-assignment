@@ -20,6 +20,6 @@ function App() {
 export default App
 
 function increaseAge(){
-    age +=1
+    
 }
 
