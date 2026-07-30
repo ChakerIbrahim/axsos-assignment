@@ -73,7 +73,6 @@ class BST {
 
     //Breadth First Search
     BFS(root) {
-      console.log("ChakerIbrahim");
       if(root == null){
         return;
       }
