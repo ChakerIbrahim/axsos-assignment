@@ -1,129 +1,110 @@
-# Hook Form
+# More Forms
 
-A React form built with the `useState` hook that displays the entered data **live**, in real time, right below the form as the user types.
+A React form that validates what you type as you type it. Error messages appear the moment a field breaks a rule and disappear the moment it's fixed — no page reload, no submit button needed to find out.
 
-Built as part of the **MERN Stack** course at [Axsos Academy](https://learn.axsos.academy/) — *Lifting State* module.
+Built for the Axsos Academy MERN Stack course (Lifting State → More Forms).
 
----
-
-## Screenshots
-
-
-### Form with live data
-![Form filled in with live data below](./screenshots/filled-form.png)
-
-
+![The form with live data below it](screenshots/form.png)
 
 ---
 
 ## Features
 
-- Five controlled inputs: **First Name**, **Last Name**, **Email**, **Password** and **Confirm Password**
-- **Live preview** — the "Your Form Data" section updates on every keystroke, no submit button needed
-- Each input is a *controlled component*, so React state is the single source of truth
+- **Five form fields** — First Name, Last Name, Email, Password, Confirm Password
+- **Live data display** — everything typed shows up underneath the form in real time
+- **Real-time validation** — errors appear and disappear on every keystroke
+  - First Name and Last Name must be at least 2 characters
+  - Email must be at least 5 characters
+  - Password must be at least 8 characters
+  - Confirm Password must match the password
+- **No errors on blank fields** — nothing is flagged before you've typed anything
+- **Disabled submit button** — stays locked until every field is valid
+- **Form resets after submit** and confirms with a thank-you message
+
+![Validation messages showing under the invalid fields](screenshots/validation.png)
+
+![A completed, valid form with the submit button enabled](screenshots/valid.png)
 
 ---
 
 ## Technologies Used
 
-| Technology | Purpose |
-|---|---|
-| **React** | Building the UI with components |
-| **useState Hook** | Managing the form state |
-| **Vite** | Development server and build tool |
-| **JavaScript (ES6+)** | Arrow functions, destructuring, template literals |
-| **HTML5 / CSS** | Markup and basic styling |
+- **React 18** — functional components and JSX
+- **useState hook** — manages every input value and every error message
+- **Vite** — build tool and development server
+- **CSS** — plain stylesheet imported directly into the component
+
+---
+
+## How to Run
+
+You'll need [Node.js](https://nodejs.org) installed.
+
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/your-username/more-forms.git
+cd more-forms
+```
+
+**2. Install the dependencies**
+
+```bash
+npm install
+```
+
+**3. Start the development server**
+
+```bash
+npm run dev
+```
+
+**4. Open the app**
+
+Vite will print a local link in the terminal, usually `http://localhost:5173`. Ctrl/Cmd + click it, or paste it into your browser.
+
+To stop the server, press `Ctrl + C` in the terminal.
 
 ---
 
 ## Project Structure
 
 ```
-hook-form/
+more-forms/
 ├── src/
 │   ├── components/
-│   │   └── Form.jsx      # The form component and all its state
-│   ├── App.jsx           # Renders the Form component
-│   └── main.jsx          # React entry point
+│   │   └── UserForm.jsx    all form logic, state, and validation
+│   ├── App.jsx             parent component
+│   ├── App.css             styles
+│   └── main.jsx            renders App into index.html
 ├── index.html
-├── package.json
-└── README.md
+└── package.json
 ```
-
----
-
-## How to Run the Project
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (v18 or higher)
-- npm (comes with Node.js)
-
-### Steps
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/YOUR-REPO.git
-   ```
-
-2. **Navigate into the project folder**
-
-   ```bash
-   cd hook-form
-   ```
-
-3. **Install the dependencies**
-
-   ```bash
-   npm install
-   ```
-
-4. **Start the development server**
-
-   ```bash
-   npm run dev
-   ```
-
-5. **Open the app in your browser**
-
-   ```
-   http://localhost:5173
-   ```
 
 ---
 
 ## How It Works
 
-Each input is tied to a piece of state:
+Each input is a **controlled component** — its `value` comes from state, and its `onChange` writes back to that state. React is the single source of truth for what's in the box.
+
+Each input also has a **second** piece of state holding its error message. The `onChange` handler updates the value and re-checks the rule in one go:
 
 ```jsx
-const [firstName, setFirstName] = useState("");
+const handleFirstName = (e) => {
+    setFirstName(e.target.value);
+
+    if (e.target.value.length === 0) {
+        setFirstNameError("");
+    } else if (e.target.value.length < 2) {
+        setFirstNameError("First Name must be at least 2 characters");
+    } else {
+        setFirstNameError("");
+    }
+};
 ```
 
-The `value` attribute reads **from** state and `onChange` writes **back to** state:
+The message is then rendered with a ternary. An empty string is falsy in JavaScript, so `""` means "show nothing" — which is what handles blank fields:
 
 ```jsx
-<input
-  type="text"
-  value={firstName}
-  onChange={(e) => setFirstName(e.target.value)}
-/>
+{ firstNameError ? <p className="error">{ firstNameError }</p> : "" }
 ```
-
-Every keystroke fires `onChange`, which updates the state and triggers a re-render. Because the preview section below the form reads the same state variables, it stays perfectly in sync — that is what makes the live update work.
-
----
-
-## What I Learned
-
-- The difference between **controlled** and uncontrolled inputs in React
-- Why calling a state setter directly in the component body causes an **infinite render loop**
-- How `&&` short-circuit evaluation is used for **conditional rendering** in JSX
-- Why each input needs **its own state variable** (sharing one between Password and Confirm Password makes the match check impossible)
-
----
-
-## Author
-
-**Chaker and Aws** — MERN Stack student at Axsos Academy
