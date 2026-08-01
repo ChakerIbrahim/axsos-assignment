@@ -1,0 +1,63 @@
+.App {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #222;
+}
+
+/* the form sits on one line */
+.box-form {
+    margin-bottom: 24px;
+}
+
+.box-form label {
+    font-weight: bold;
+    margin-right: 6px;
+}
+
+.box-form input[type="text"],
+.box-form input[type="number"] {
+    padding: 8px;
+    margin-right: 14px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+
+.box-form input[type="number"] {
+    width: 90px;
+}
+
+.box-form input[type="submit"] {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background: #2d6cdf;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.box-form input[type="submit"]:focus-visible {
+    outline: 2px solid #111;
+    outline-offset: 2px;
+}
+
+.error {
+    color: #c0392b;
+    font-size: 14px;
+    margin: 8px 0 0 0;
+}
+
+/* THIS is what makes the boxes sit side by side and wrap
+   onto the next line when they run out of room */
+.box-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* colour and size come from inline styles, set per box */
+.box {
+    border: 1px solid #333;
+}
