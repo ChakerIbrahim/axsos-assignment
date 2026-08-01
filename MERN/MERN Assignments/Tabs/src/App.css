@@ -1,0 +1,74 @@
+.App {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #222;
+}
+
+/* the headers sit in a row and wrap if there are many tabs */
+.tab-headers {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tab-header {
+    padding: 12px 28px;
+    border: 1px solid #333;
+    background: #fff;
+    color: #222;
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    /* NINJA BONUS: smooth the colour change on hover and select */
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* stops double-thick lines between neighbouring headers */
+.tab-header + .tab-header {
+    border-left: none;
+}
+
+.tab-header:hover {
+    background: #eee;
+}
+
+/* the open tab */
+.tab-header.active {
+    background: #111;
+    color: #fff;
+}
+
+.tab-header:focus-visible {
+    outline: 2px solid #2d6cdf;
+    outline-offset: -4px;
+}
+
+.tab-content {
+    border: 1px solid #333;
+    border-top: none;
+    padding: 20px;
+    min-height: 120px;
+    /* NINJA BONUS: the panel fades and slides in on every switch */
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* respect users who've asked for less motion */
+@media (prefers-reduced-motion: reduce) {
+    .tab-header,
+    .tab-content {
+        transition: none;
+        animation: none;
+    }
+}
