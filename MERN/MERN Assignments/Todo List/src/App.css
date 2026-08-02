@@ -1,0 +1,83 @@
+.App {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #222;
+}
+
+.todo-form {
+    margin-bottom: 28px;
+}
+
+.todo-form input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 4px;
+    background: #ebebeb;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.todo-form input[type="submit"] {
+    padding: 10px 28px;
+    border: none;
+    border-radius: 4px;
+    background: #1a1aee;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.todo-form input[type="submit"]:focus-visible {
+    outline: 2px solid #111;
+    outline-offset: 2px;
+}
+
+.error {
+    color: #c0392b;
+    font-size: 14px;
+    margin: 10px 0 0 0;
+}
+
+/* one task per row, everything on one line */
+.todo-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.task-text {
+    font-size: 16px;
+}
+
+/* THIS is what crosses out a finished task */
+.task-text.done {
+    text-decoration: line-through;
+    color: #777;
+}
+
+.delete-btn {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 4px;
+    background: #111;
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #333;
+}
+
+.delete-btn:focus-visible {
+    outline: 2px solid #1a1aee;
+    outline-offset: 2px;
+}
