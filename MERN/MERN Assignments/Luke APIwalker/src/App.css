@@ -1,0 +1,116 @@
+.App {
+    font-family: Arial, sans-serif;
+    max-width: 620px;
+    margin: 40px auto;
+    padding: 0 20px 60px;
+    color: #eee;
+}
+
+body {
+    background: #14161c;
+}
+
+.App h1 {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffd54a;
+}
+
+/* ---------- the persistent search bar ---------- */
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding: 16px;
+    border: 1px solid #2c303a;
+    border-radius: 6px;
+    background: #1c1f27;
+}
+
+.search-form select,
+.search-form input[type="number"] {
+    padding: 8px;
+    border: 1px solid #3a3f4c;
+    border-radius: 4px;
+    background: #14161c;
+    color: #eee;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.search-form input[type="number"] {
+    width: 90px;
+}
+
+.search-form input[type="submit"] {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    background: #ffd54a;
+    color: #14161c;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search-form input[type="submit"]:hover {
+    background: #ffe07d;
+}
+
+.search-form input[type="submit"]:focus-visible,
+.search-form select:focus-visible,
+.search-form input[type="number"]:focus-visible {
+    outline: 2px solid #ffd54a;
+    outline-offset: 2px;
+}
+
+/* the error sits on its own line under the bar */
+.form-error {
+    flex-basis: 100%;
+    margin: 4px 0 0 0;
+    color: #ff6b6b;
+    font-size: 14px;
+}
+
+/* ---------- pages ---------- */
+.home,
+.detail,
+.error-box,
+.status {
+    margin-top: 28px;
+}
+
+.detail h2,
+.error-box h2 {
+    color: #ffd54a;
+}
+
+.detail ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.detail li {
+    padding: 10px 0;
+    border-bottom: 1px solid #2c303a;
+}
+
+.status {
+    font-style: italic;
+    color: #999;
+}
+
+.obiwan {
+    max-width: 260px;
+    border-radius: 6px;
+}
+
+a {
+    color: #ffd54a;
+}
+
+.examples a {
+    margin: 0 2px;
+}
