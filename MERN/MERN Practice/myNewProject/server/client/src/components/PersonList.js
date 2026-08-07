@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import DeleteButton from "./DeleteButton";
 
 const PersonList = (props) => {
   return(
@@ -14,7 +15,7 @@ const PersonList = (props) => {
 export default PersonList;
 
 const PersonList = (props) => {
-    const { removeFromDom } = props;
+    const {people, removeFromDom } = props;
     
     const deletePerson = (personId) => {
         axios.delete('http://localhost:8000/api/people/' + personId)
@@ -26,15 +27,18 @@ const PersonList = (props) => {
     
     return (
         <div>
-            {props.people.map((person, idx) => {
+            {people.map((person, idx) => {
                 return <p key={idx}>
                     <Link to={"/" + person._id}>
                         {person.lastName}, {person.firstName}
                     </Link>
                     |
-                    <button onClick={(e)=>{deletePerson(person._id)}}>
-                        Delete
-                    </button>
+                    <Link to={"/" + person._id + "/edit"}>
+                    Edit
+                    </Link>
+                    |
+
+                    <Deletebutton sucessCallback={()=>removeFromDom(person._id)}/>
                 </p>
             })}
         </div>

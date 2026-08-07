@@ -1,16 +1,13 @@
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+import { useParams } from "react-router-dom";
+import PersonForm from '../components/PersonForm';
+
 module.exports.updatePerson = (request, response) => {
     Person.findOneAndUpdate({_id: request.params.id}, request.body, {new:true})
         .then(updatedPerson => response.json(updatedPerson))
         .catch(err => response.json(err))
 }
-
-Now, let's delve into implementing this in React. We'll need to create a new view: 
-
-views/Update.js 
-
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
-import { useParams } from "react-router-dom";
     
 const Update = (props) => {
     const { id } = useParams();
@@ -34,8 +31,31 @@ const Update = (props) => {
             .then(res => console.log(res))
             .catch(err => console.error(err));
     }
+
+    const {id} = props;
+    const[person, setPerson] = useState();
+    const[loaded, setLoaded] = useState(false);
+
+    useEffect(()=> {
+        axios.get('http://localhost:8000/api/person/' + id)
+            .then(res => {
+                setPerson(res.data);
+                setLoaded(true);
+            })
+    }),[])
+    const updatedPerson = person => {
+        axios.put('http://localhost:8000/api/person/' + id, person)
+         .then(res=> console.log(res));
+    }
     
     return (
+        {loaded && (
+            <PersonForm
+                onSubmitprop={updatePerson}
+                initialFirstName={person.firstName}
+                initialLastName={person.lastName}
+                />
+        )}
         <div>
             <h1>Update a Person</h1>
             <form onSubmit={updatePerson}>

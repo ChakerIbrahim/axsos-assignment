@@ -13,3 +13,15 @@ const port = process.env.PORT;
 app.listen(8000, () => {
     console.log("Listening at Port 8000")
 })
+
+constio = require('socket.io')(ServerRouter, {cors:true});
+
+io.on("connection", socket=> {
+    console.log(socket.id);
+})
+
+io.on("connection", socket => {
+    socket.on("event_from_client", data => {
+        socket.broadcast.emit("send_data_to_all_other_clients", data);
+    });
+});

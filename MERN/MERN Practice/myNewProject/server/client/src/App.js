@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import io from 'socket.io-client';
 import Main from "./views/Main";
 import { Routes, Route } from "react-router-dom";
 import Detail from "./views/Details";
@@ -16,4 +17,22 @@ function App() {
   );
 }
 
+export default App;
+
+function App() {
+  const[socket]=useState(() => io(':8000'));
+
+  useEffect(() => {
+    console.log('Is this running?');
+    socket.on('Welcome', data => console.log(data));
+
+    return() => socket.removeAllListeners;
+  }, [socket]);
+
+  return(
+    <div className="App">
+      <h1>Socket test</h1>
+    </div>
+  );
+}
 export default App;
