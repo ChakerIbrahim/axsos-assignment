@@ -1,0 +1,89 @@
+.App {
+    font-family: Arial, sans-serif;
+    max-width: 620px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #222;
+}
+
+a {
+    color: #2d6cdf;
+}
+
+/* ---------- the list ---------- */
+.author-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.author-table th,
+.author-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.author-table button {
+    margin-left: 12px;
+    padding: 4px 12px;
+    border: none;
+    border-radius: 4px;
+    background: #c0392b;
+    color: #fff;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.author-table button:focus-visible {
+    outline: 2px solid #111;
+    outline-offset: 2px;
+}
+
+/* ---------- the form ---------- */
+.author-form {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.author-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.author-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-buttons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.form-buttons input[type="submit"] {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    background: #2d6cdf;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-buttons input[type="submit"]:focus-visible {
+    outline: 2px solid #111;
+    outline-offset: 2px;
+}
+
+.error {
+    margin: 0 0 10px 0;
+    color: #c0392b;
+    font-size: 14px;
+}
